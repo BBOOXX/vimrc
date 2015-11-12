@@ -22,4 +22,8 @@ git clone git://github.com/iamcco/markdown-preview.vim.git
 cd ~
 echo "通过pip安装依赖"
 sudo pip install jedi ipython ipdb pep8 pylint autopep8
+echo "移动.vimrc文件到用户目录"
+mv ~/vimrc/.vimrc ~
+echo "删除自身"
+rm -rf ~/vimrc/
 echo "Done."
