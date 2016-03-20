@@ -5,7 +5,6 @@ autocmd! bufwritepost .vimrc source %
 
 " set encoding=utf-8
 
-
 " Better copy & paste
 " 更友好的粘贴
 set pastetoggle=<F2>
@@ -29,13 +28,27 @@ function! HideRelativeNumber()
   set number?
 endfunc
 
-" 相对行号和绝对行号二选一
 "nnoremap <F3> :call HideRelativeNumber()<CR>
 nnoremap <F3> :call HideNumber()<CR>
 
 
 " Rebind <Leader> key
 let mapleader = ","
+
+" Map jj to <Esc>
+" jj 替换 Esc
+inoremap jj <Esc>
+
+
+" Go to home and end using capitalized directions
+" H 和 L 跳转行首行尾
+noremap H ^
+noremap L $
+
+
+" Map ; to : and save a million keystrokes
+" 分号映射为冒号
+nnoremap ; :
 
 
 " Bind nohl
@@ -117,9 +130,11 @@ set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
-"高亮显示当前行和列
+" 高亮显示当前行和列
 set cursorline
 set cursorcolumn
+" 光标的上方或下方至少会保留显示的行数
+set scrolloff=7
 
 
 " easier formatting of paragraphs
