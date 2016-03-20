@@ -14,6 +14,11 @@ set clipboard=unnamed
 
 " 设置<F3>开启/关闭行号，为了方便复制
 function! HideNumber()
+  set number!
+  set number?
+endfunc
+
+function! HideRelativeNumber()
   if(&relativenumber == &number)
     set relativenumber! number!
   elseif(&number)
@@ -23,6 +28,9 @@ function! HideNumber()
   endif
   set number?
 endfunc
+
+" 相对行号和绝对行号二选一
+"nnoremap <F3> :call HideRelativeNumber()<CR>
 nnoremap <F3> :call HideNumber()<CR>
 
 
