@@ -96,7 +96,7 @@ autocmd FileType python map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOIN
 " <F4> 输入参数后运行文件
 autocmd FileType python map <F4> :!python %<space>
 " <F5> 运行文件
-autocmd FileType python map <F4> :!python %<cr>
+autocmd FileType python map <F5> :!python %<cr>
 
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
