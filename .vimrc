@@ -38,6 +38,7 @@ inoremap <C-z> <C-O>:update<CR>
 
 " Quick quit command
 " 快速退出
+noremap <Leader>q :quit!<CR>
 noremap <Leader>e :quit<CR>  " Quit current window
 noremap <Leader>E :qa!<CR>   " Quit all windows
 
@@ -88,6 +89,14 @@ endfunc
 " 设置<F3>开启/关闭行号，方便复制
 "nnoremap <F3> :call HideRelativeNumber()<CR>
 nnoremap <F3> :call HideNumber()<CR>
+
+" Python 文件中的快捷键
+" <Leader>b 快速设置 ipdb 调试断点
+autocmd FileType python map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+" <F4> 输入参数后运行文件
+autocmd FileType python map <F4> :!python %<space>
+" <F5> 运行文件
+autocmd FileType python map <F4> :!python %<cr>
 
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -378,7 +387,4 @@ let g:jedi#popup_on_dot = 0
 
 " 使用:Pyimport命令 打开模块
 "`:Pyimport module_name` Open module.
-
-"快速设置调试断点
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
