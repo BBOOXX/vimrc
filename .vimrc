@@ -233,6 +233,57 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" DrawIt
+" 快速画ASCII图
+" git clone git://github.com/vim-scripts/DrawIt
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+" <Leader>di       开始
+" <Leader>ds       结束
+" h j k l          移动
+" 上下左右         画线
+" ^ v > <          小箭头
+" <Leader> 加 ^v>< 大箭头
+" <space>          切换橡皮/画笔
+
+" 斜线和键盘方向一致
+" Home    Up   Pgup
+"     \   |   /
+"      \  |  /
+"       \ | /
+"        \|/
+" Left----------Right
+"        /|\
+"       / | \
+"      /  |  \
+"     /   |   \
+"  End   Down  Pgdn
+
+" V模式:
+" <Leader>a       画对角线
+" <Leader>l       不带箭头
+" <Leader>b       矩形
+" <Leader>e       椭圆
+" <Leader>f       填充
+" <Leader>s       整行填充空格
+" <Leader>c       画布填充空格
+" <C-LeftMouse>   移动
+
+" 设置笔刷:
+" V模式选中文本后
+" `"[a-z]y` 或 `:'<,'>SetBrush [a-z]`
+" 设置选定文本为笔刷,[a-z]为寄存器
+" 使用笔刷:
+" <shift-leftmouse> 拖动鼠标
+" `:SetBrush [a-z]` 设置当前笔刷
+" <Leader>r[a-z]    使用笔刷(笔刷空白不透明)
+" <Leader>p[a-z]    使用笔刷(笔刷空白透明)
+
+" 命令模式:
+" `:DInrml`         标准模式
+" `:DIsngl`         单线模式
+" `:DIdbl`          双线模式
+
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " Emmet-vim
 " git clone https://github.com/mattn/emmet-vim
 " http://www.zfanw.com/blog/zencoding-vim-tutorial-chinese.html
