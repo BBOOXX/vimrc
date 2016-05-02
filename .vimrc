@@ -258,7 +258,7 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 "     /   |   \
 "  End   Down  Pgdn
 
-" V模式:
+" V-Block 模式(C-V):
 " <Leader>a       画对角线
 " <Leader>l       不带箭头
 " <Leader>b       矩形
@@ -269,7 +269,7 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 " <C-LeftMouse>   移动
 
 " 设置笔刷:
-" V模式选中文本后
+" V-Block 模式(C-V)选中文本后
 " `"[a-z]y` 或 `:'<,'>SetBrush [a-z]`
 " 设置选定文本为笔刷,[a-z]为寄存器
 " 使用笔刷:
