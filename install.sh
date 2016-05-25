@@ -1,6 +1,6 @@
 #!/bin/sh
 case "$OSTYPE" in
-    # darwin*)  brew install vim-nox git pip wget;;
+    darwin*)  brew install vim wget;;
     linux*)   sudo apt-get install vim-nox git python-pip wget;;
     *)        echo "unknown: OS: $OSTYPE, U should install dependences by yourself" ;;
 esac

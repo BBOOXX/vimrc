@@ -143,6 +143,12 @@ filetype off
 filetype plugin indent on
 syntax on
 
+" Mouse and backspace
+" on OSX press ALT and click
+set mouse=a
+" make backspace behave like normal again
+set bs=2
+
 " Showing line numbers and length
 " 显示行号和卡尺
 set number  " show line numbers
