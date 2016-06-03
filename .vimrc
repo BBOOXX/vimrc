@@ -382,6 +382,15 @@ set wildignore+=*_build/*
 set wildignore+=*/coverage/*
 
 
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" NERDTree
+" 树形目录
+" cd ~/.vim/bundle
+" git clone https://github.com/scrooloose/nerdtree.git
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+map <F10> :NERDTreeToggle<CR>
+
+
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " syntastic
 " 静态代码检查

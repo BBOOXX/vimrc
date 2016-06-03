@@ -13,6 +13,7 @@ wget -O ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim
 cd ~/.vim/bundle
 git clone git://github.com/Lokaltog/vim-powerline
 git clone git://github.com/kien/ctrlp.vim
+git clone git://github.com/scrooloose/nerdtree
 git clone git://github.com/davidhalter/jedi-vim
 git clone git://github.com/ervandew/supertab
 git clone git://github.com/mattn/emmet-vim
