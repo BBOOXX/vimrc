@@ -362,10 +362,10 @@ au Syntax * RainbowParenthesesLoadBraces
 " git clone git://github.com/SirVer/ultisnips
 " git clone git://github.com/honza/vim-snippets
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<leader><tab>"
 " let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-v>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
+let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
 " If you want :UltiSnipsEdit to split your window.
 " let g:UltiSnipsEditSplit="vertical"
 
