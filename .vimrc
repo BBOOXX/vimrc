@@ -92,7 +92,8 @@ nnoremap <F3> :call HideNumber()<CR>
 
 " Python 文件中的快捷键
 " <Leader>b 快速设置 ipdb 调试断点
-autocmd FileType python map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+"autocmd FileType python map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+autocmd FileType python map <Leader>b Oimport pudb; pu.db  # BREAKPOINT<C-c>
 " <F4> 输入参数后运行文件
 autocmd FileType python map <F4> :!python %<space>
 " <F5> 运行文件
