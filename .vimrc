@@ -1,5 +1,5 @@
 " Automatic reloading of .vimrc
-" 自动加载.vimrc文件
+"https://github.com/majutsushi/tagbar.git 自动加载.vimrc文件
 autocmd! bufwritepost .vimrc source %
 
 " Rebind <Leader> key
@@ -402,14 +402,14 @@ let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^
 " brew install ctags
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 nmap <F9> :TagbarToggle<CR>
-" 启动时自动
-" let g:tagbar_autofocus = 1
+" 启动时自动focus
+let g:tagbar_autofocus = 1
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " syntastic
 " 静态代码检查
 " git clone https://github.com/scrooloose/syntastic
-" sudo pip install pep8 pylint
+" sudo pip install pep8 pyflakes
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 " :lnext     跳转到下一个错误
 " :lprevious 跳转到上一个错误
