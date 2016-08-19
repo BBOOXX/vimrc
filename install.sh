@@ -1,7 +1,7 @@
 #!/bin/sh
 case "$OSTYPE" in
-    darwin*)  brew install vim wget;;
-    linux*)   sudo apt-get install vim-nox git python-pip wget;;
+    darwin*)  brew install vim wget ctags;;
+    linux*)   sudo apt-get install vim-nox git python-pip wget ctags;;
     *)        echo "unknown: OS: $OSTYPE, U should install dependences by yourself" ;;
 esac
 echo "创建文件夹"
@@ -24,6 +24,7 @@ git clone git://github.com/scrooloose/syntastic
 git clone git://github.com/tell-k/vim-autopep8
 git clone git://github.com/SirVer/ultisnips
 git clone git://github.com/honza/vim-snippets
+git clone git://github.com/majutsushi/tagbar
 git clone git://github.com/iamcco/markdown-preview.vim
 git clone git://github.com/vim-scripts/DrawIt
 cd ~

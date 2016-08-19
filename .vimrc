@@ -392,6 +392,19 @@ set wildignore+=*/coverage/*
 map <F10> :NERDTreeToggle<CR>
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
 
+
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" tagbar
+" 大纲式导航
+" cd ~/.vim/bundle
+" git clone https://github.com/majutsushi/tagbar
+" sudo apt-get install ctags
+" brew install ctags
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+nmap <F9> :TagbarToggle<CR>
+" 启动时自动
+" let g:tagbar_autofocus = 1
+
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " syntastic
 " 静态代码检查
