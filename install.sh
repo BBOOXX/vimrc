@@ -26,6 +26,7 @@ git clone git://github.com/SirVer/ultisnips
 git clone git://github.com/honza/vim-snippets
 git clone git://github.com/majutsushi/tagbar
 git clone git://github.com/iamcco/markdown-preview.vim
+git clone git://github.com/easymotion/vim-easymotion
 git clone git://github.com/vim-scripts/DrawIt
 cd ~
 echo "通过pip安装依赖"

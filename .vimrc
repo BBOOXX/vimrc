@@ -371,6 +371,21 @@ let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
 " let g:UltiSnipsEditSplit="vertical"
 
 
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" vim-easymotion
+" 快速跳转
+" git clone git://github.com/easymotion/vim-easymotion
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+let g:EasyMotion_smartcase = 1
+"let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+map <Leader><leader>f <Plug>(easymotion-s)
+map <Leader><leader>h <Plug>(easymotion-linebackward)
+map <Leader><Leader>j <Plug>(easymotion-j)
+map <Leader><Leader>k <Plug>(easymotion-k)
+map <Leader><leader>l <Plug>(easymotion-lineforward)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " ctrlp
 " 快速打开文件
