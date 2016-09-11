@@ -28,6 +28,7 @@ git clone git://github.com/majutsushi/tagbar
 git clone git://github.com/iamcco/markdown-preview.vim
 git clone git://github.com/easymotion/vim-easymotion
 git clone git://github.com/vim-scripts/DrawIt
+git clone git://github.com/kshenoy/vim-signature
 cd ~
 echo "通过pip安装依赖"
 sudo pip install jedi ipython pep8 autopep8
