@@ -240,6 +240,13 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" vim-table-mode
+" 快速画Markdown表格
+" git clone git://github.com/dhruvasagar/vim-table-mode
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " DrawIt
 " 快速画ASCII图
 " git clone git://github.com/vim-scripts/DrawIt
