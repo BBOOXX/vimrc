@@ -244,6 +244,8 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 " 快速画Markdown表格
 " git clone git://github.com/dhruvasagar/vim-table-mode
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+" <Leader>tm      开启
+" 输入|| 创建顶端或底端
 
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
