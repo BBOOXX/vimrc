@@ -478,11 +478,14 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['pyflakes', 'pep8']
-let g:syntastic_mode_map = {
-    \ "mode": "passive",
-    \ "active_filetypes": [],
-    \ "passive_filetypes": ["python"] }
+"let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+""pep8 闹眼睛关掉了 以后随手F8格式化一下
+let g:syntastic_python_checkers = ['pyflakes']
+"let g:syntastic_mode_map = {
+"    \ 'mode': 'passive',
+"    \ 'active_filetypes': [],
+"    \ 'passive_filetypes': ['python'] }
+""关掉被动模式
 
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
