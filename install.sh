@@ -11,7 +11,8 @@ wget -O ~/.vim/colors/monokai.vim https://raw.githubusercontent.com/BBOOXX/vim-m
 echo "下载插件"
 wget -O ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 cd ~/.vim/bundle
-git clone git://github.com/Lokaltog/vim-powerline
+git clone git://github.com/vim-airline/vim-airline
+git clone git://github.com/vim-airline/vim-airline-themes
 git clone git://github.com/kien/ctrlp.vim
 git clone git://github.com/scrooloose/nerdtree
 git clone git://github.com/davidhalter/jedi-vim

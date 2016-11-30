@@ -211,12 +211,15 @@ call pathogen#infect()
 
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-" vim-powerline
+" vim-airline
 " 状态栏增强
 " cd ~/.vim/bundle
-" git clone git://github.com/Lokaltog/vim-powerline.git
+" git clone git://github.com/vim-airline/vim-airline
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 set laststatus=2
+let g:airline_theme='powerlineish'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
