@@ -1,6 +1,6 @@
 #!/bin/sh
 case "$OSTYPE" in
-    darwin*)  brew install vim wget ctags;;
+    darwin*)  brew install vim wget ctags reattach-to-user-namespace --with-wrap-pbcopy-and-pbpaste;;
     linux*)   sudo apt-get install vim-nox git python-pip wget ctags;;
     *)        echo "unknown: OS: $OSTYPE, U should install dependences by yourself" ;;
 esac
@@ -33,7 +33,7 @@ git clone git://github.com/kshenoy/vim-signature
 git clone git://github.com/dhruvasagar/vim-table-mode
 cd ~
 echo "通过pip安装依赖"
-sudo pip install jedi ipython pep8 autopep8
+sudo pip install jedi autopep8
 echo "移动.vimrc文件到用户目录"
 mv ~/vimrc/.vimrc ~
 echo "删除自身"
