@@ -8,6 +8,9 @@ let mapleader = ","
 " Better copy & paste
 " 更友好的粘贴
 set pastetoggle=<F2>
+
+" 修复 macOS Sierra 中 vim 剪板题
+" 需要 brew install reattach-to-user-namespace --with-wrap-pbcopy-and-pbpaste
 set clipboard=unnamed
 
 " Map jj to <Esc>
