@@ -133,6 +133,9 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 set t_Co=256
 color monokai
 
+" 显示输入命令
+set showcmd
+
 " set encoding=utf-8
 
 " Show whitespace
@@ -310,11 +313,11 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 " git clone https://github.com/mattn/emmet-vim
 " http://www.zfanw.com/blog/zencoding-vim-tutorial-chinese.html
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-let g:user_emmet_expandabbr_key = '<Tab>'
+let g:user_emmet_expandabbr_key = '<leader><leader><Tab>'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 " let g:user_emmet_leader_key='<C-Y>'
-" let g:user_emmet_mode='n'    "only enable normal mode functions.
+let g:user_emmet_mode='i'    "only enable insert mode functions.
 " let g:user_emmet_mode='inv'  "enable all functions, which is equal to
 " let g:user_emmet_mode='a'    "enable all function in all mode.
 
