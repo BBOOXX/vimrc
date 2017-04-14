@@ -26,6 +26,10 @@ noremap L $
 " 分号映射为冒号
 nnoremap ; :
 
+" Map Ctrl-r to U
+" 撤销/重做 改为 u/U
+nnoremap U <C-r>
+
 " Bind nohl
 " Removes highlight of your last search
 " 取消搜索高亮
