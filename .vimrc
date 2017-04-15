@@ -30,6 +30,10 @@ nnoremap ; :
 " 撤销/重做 改为 u/U
 nnoremap U <C-r>
 
+" Map Ctrl-w T to <Leader>!
+" 当前窗口转换为新标签
+nnoremap <Leader>! <C-w>T
+
 " Bind nohl
 " Removes highlight of your last search
 " 取消搜索高亮
