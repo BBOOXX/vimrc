@@ -1,5 +1,5 @@
 " Automatic reloading of .vimrc
-"https://github.com/majutsushi/tagbar.git 自动加载.vimrc文件
+" 自动加载.vimrc文件
 autocmd! bufwritepost .vimrc source %
 
 " Rebind <Leader> key
