@@ -1,7 +1,7 @@
 #!/bin/sh
 case "$OSTYPE" in
     darwin*)  brew install vim wget ctags reattach-to-user-namespace --with-wrap-pbcopy-and-pbpaste;;
-    linux*)   sudo apt-get install vim-nox git python-pip wget ctags;;
+    linux*)   sudo apt-get install vim-nox-py2 git python-pip wget ctags;;
     *)        echo "unknown: OS: $OSTYPE, U should install dependences by yourself" ;;
 esac
 echo "创建文件夹"
