@@ -110,6 +110,10 @@ autocmd FileType python map <F4> :!python %<space>
 " <F5> 运行文件
 autocmd FileType python map <F5> :!python %<cr>
 
+" JSON 文件中的快捷键
+" <F5> 格式化json
+autocmd FileType json map <F5> :%!python -m json.tool <cr>
+
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " Better navigating through omnicomplete option list
