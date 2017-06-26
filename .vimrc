@@ -226,7 +226,10 @@ call pathogen#infect()
 " 自动补完符号
 " git clone https://github.com/Raimondi/delimitMate.git
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-"let delimitMate_autoclose = 0
+" let delimitMate_autoclose = 0
+imap <c-f> <Plug>delimitMateS-Tab
+" for python docstring
+au FileType python let b:delimitMate_nesting_quotes = ['"']
 
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
