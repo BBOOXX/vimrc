@@ -233,6 +233,14 @@ au FileType python let b:delimitMate_nesting_quotes = ['"']
 
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" vim-easy-align
+" 快速对齐
+" git clone git://github.com/junegunn/vim-easy-align
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+xmap ga <Plug>(EasyAlign)
+
+
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " vim-airline
 " 状态栏增强
 " cd ~/.vim/bundle

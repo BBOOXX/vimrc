@@ -31,6 +31,7 @@ git clone git://github.com/easymotion/vim-easymotion
 git clone git://github.com/vim-scripts/DrawIt
 git clone git://github.com/kshenoy/vim-signature
 git clone git://github.com/dhruvasagar/vim-table-mode
+git clone git://github.com/junegunn/vim-easy-align
 cd ~
 echo "通过pip安装依赖"
 sudo pip install jedi autopep8
