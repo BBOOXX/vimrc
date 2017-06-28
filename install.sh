@@ -34,7 +34,7 @@ git clone git://github.com/dhruvasagar/vim-table-mode
 git clone git://github.com/junegunn/vim-easy-align
 cd ~
 echo "通过pip安装依赖"
-sudo pip install jedi autopep8
+sudo pip install jedi autopep8 isort
 echo "移动.vimrc文件到用户目录"
 mv ~/vimrc/.vimrc ~
 echo "删除自身"
