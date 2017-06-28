@@ -241,6 +241,25 @@ xmap ga <Plug>(EasyAlign)
 
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" vim-isort
+" 排序python import
+" pip install isort
+" git clone git://github.com/fisadev/vim-isort
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+let g:vim_isort_map = '<C-i>'
+
+
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" vim-textobj-user
+" 自定义 textobj 基类
+" vim-textobj-indent
+" 定义缩进 textobj 
+" git clone git://github.com/kana/vim-textobj-user
+" git clone git://github.com/kana/vim-textobj-indent
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " vim-airline
 " 状态栏增强
 " cd ~/.vim/bundle
