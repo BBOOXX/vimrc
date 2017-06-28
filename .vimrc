@@ -530,7 +530,7 @@ let g:syntastic_python_checkers = ['pyflakes']
 " git clone https://github.com/tell-k/vim-autopep8
 " sudo pip install autopep8
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-" autocmd FileType python map <buffer> <F8> :call Autopep8()<CR>
+autocmd FileType python map <buffer> <F8> :call Autopep8()<CR>
 let g:autopep8_max_line_length=150
 let g:autopep8_disable_show_diff=1
 
