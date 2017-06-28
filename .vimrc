@@ -253,9 +253,16 @@ let g:vim_isort_map = '<C-i>'
 " vim-textobj-user
 " 自定义 textobj 基类
 " vim-textobj-indent
-" 定义缩进 textobj 
+" 定义缩进 textobj
 " git clone git://github.com/kana/vim-textobj-user
 " git clone git://github.com/kana/vim-textobj-indent
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" vim-python-pep8-indent
+" 符合PEP8风格的缩进
+" git clone git://github.com/Vimjas/vim-python-pep8-indent
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
