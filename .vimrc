@@ -66,9 +66,9 @@ map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 
 " easier moving of code blocks
-" v模式中 使用'>'和'<'进行缩进
-vnoremap < <gv  " better indentation
-vnoremap > >gv  " better indentation
+" v模式中 使用'<Tab>'和'<S-Tab>'进行缩进
+vnoremap <Tab> <gv    " better indentation
+vnoremap <S-Tab> >gv  " better indentation
 
 " map sort function to a key
 " v模式中 排序
@@ -246,7 +246,7 @@ xmap ga <Plug>(EasyAlign)
 " pip install isort
 " git clone git://github.com/fisadev/vim-isort
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-let g:vim_isort_map = '<C-i>'
+let g:vim_isort_map = '<F6>'
 
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
