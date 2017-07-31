@@ -67,8 +67,8 @@ map <Leader>m <esc>:tabnext<CR>
 
 " easier moving of code blocks
 " v模式中 使用'<Tab>'和'<S-Tab>'进行缩进
-vnoremap <Tab> <gv    " better indentation
-vnoremap <S-Tab> >gv  " better indentation
+vnoremap <S-Tab> <gv    " better indentation
+vnoremap <Tab> >gv  " better indentation
 
 " map sort function to a key
 " v模式中 排序
