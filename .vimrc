@@ -60,6 +60,10 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+" 新建标签  Ctrl+t
+nnoremap <C-t> :tabnew<CR>
+inoremap <C-t> <esc>:tabnew<CR>
+
 " easier moving between tabs
 " 切换标签
 map <Leader>n <esc>:tabprevious<CR>
@@ -70,6 +74,9 @@ map <Leader>m <esc>:tabnext<CR>
 vnoremap <S-Tab> <gv    " better indentation
 vnoremap <Tab> >gv  " better indentation
 
+" 选中并高亮最后一次插入的内容
+nnoremap <Leader>v `[v`]
+
 " map sort function to a key
 " v模式中 排序
 vnoremap <Leader>s :sort<CR>
@@ -78,6 +85,11 @@ vnoremap <Leader>s :sort<CR>
 " 排版文本
 " vmap Q gq
 " nmap Q gqap
+" 
+" 如遇Unicode值大于255的文本，不必等到空格再折行
+set formatoptions+=m
+" 合并两行中文时，不在中间加空格
+set formatoptions+=B
 
 " 开关行号函数
 ""绝对行号
@@ -114,6 +126,18 @@ autocmd FileType python map <F5> :!python %<cr>
 " <F5> 格式化json
 autocmd FileType json map <F5> :%!python -m json.tool <cr>
 
+" 打开自动定位到最后编辑的位置, 需要确认 .viminfo 当前用户可写
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" F1 废弃这个键,防止调出系统帮助
+noremap <F1> <Esc>
+
+" F11 换行开关
+nnoremap <F11> :set wrap! wrap?<CR>
+" F12 显示可打印字符开关
+nnoremap <F12> :set list! list?<CR>
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " Better navigating through omnicomplete option list
@@ -536,6 +560,8 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" 修改高亮的背景色, 适应主题
+highlight SyntasticErrorSign guifg=white guibg=black
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
