@@ -489,6 +489,33 @@ let g:autopep8_disable_show_diff=1
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 xmap ga <Plug>(EasyAlign)
 
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" YouCompleteMe
+" git clone git://github.com/Valloric/YouCompleteMe
+" cd ~/.vim/bundle/YouCompleteMe
+" git submodule update --init --recursive
+" python ~/.vim/bundle/YouCompleteMe/install.py --racer-completer
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+let g:ycm_collect_identifiers_from_comments_and_strings = 1 " 注释和字符串中的文字也会被收入补全
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_complete_in_comments = 1                          " 在注释输入中也能补全
+let g:ycm_complete_in_strings = 1                           " 在字符串输入中也能补全
+let g:ycm_goto_buffer_command = 'horizontal-split'          " 跳转到定义处, 分屏打开
+let g:ycm_key_invoke_completion = '<Leader><tab>'           " 直接触发自动补全 insert模式下
+let g:ycm_key_list_stop_completion = ['<CR>']               " 回车作为选中
+let g:ycm_min_num_of_chars_for_completion = 2               " 触发补全字数
+let g:ycm_register_as_syntastic_checker = 0
+let g:ycm_seed_identifiers_with_syntax=1                    " 开启语法关键字补全
+let g:ycm_use_ultisnips_completer = 1                       " 提示UltiSnips
+nnoremap <leader>d :YcmCompleter GoTo<CR>
+nnoremap K :YcmCompleter GetDoc<CR>
+
+" 黑名单,不启用
+let g:ycm_filetype_blacklist = {
+    \ 'tagbar' : 1,
+    \ 'gitcommit' : 1,
+    \}
+
 
 "弃用"  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 "弃用"  " Rupertab
