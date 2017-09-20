@@ -31,6 +31,7 @@ git clone git://github.com/scrooloose/syntastic
 git clone git://github.com/tell-k/vim-autopep8
 git clone git://github.com/vim-airline/vim-airline
 git clone git://github.com/vim-airline/vim-airline-themes
+#git clone git://github.com/mattn/vim-xxdcursor
 #git clone git://github.com/davidhalter/jedi-vim
 #git clone git://github.com/dhruvasagar/vim-table-mode
 #git clone git://github.com/ervandew/supertab

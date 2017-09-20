@@ -289,6 +289,14 @@ call pathogen#infect()
 " m?           Open location list and display markers from current buffer
 " m<BS>        Remove all markers
 
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" vim-xxdcursor
+" xxd 模式光标
+" git clone git://github.com/mattn/vim-xxdcursor
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+"
+" :set ft=xxd
+
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " nerdcommenter
 " 快速注释
