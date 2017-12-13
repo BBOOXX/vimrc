@@ -508,10 +508,10 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1 " 注释和字符串
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_complete_in_comments = 1                          " 在注释输入中也能补全
 let g:ycm_complete_in_strings = 1                           " 在字符串输入中也能补全
-let g:ycm_goto_buffer_command = 'horizontal-split'          " 跳转到定义处, 分屏打开
+"let g:ycm_goto_buffer_command = 'horizontal-split'         " 跳转到定义处, 分屏打开
 let g:ycm_key_invoke_completion = '<Leader><tab>'           " 直接触发自动补全 insert模式下
 let g:ycm_key_list_stop_completion = ['<CR>']               " 回车作为选中
-let g:ycm_min_num_of_chars_for_completion = 2               " 触发补全字数
+let g:ycm_min_num_of_chars_for_completion = 1               " 触发补全字数
 let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_seed_identifiers_with_syntax=1                    " 开启语法关键字补全
 let g:ycm_use_ultisnips_completer = 1                       " 提示UltiSnips
@@ -523,6 +523,35 @@ let g:ycm_filetype_blacklist = {
     \ 'tagbar' : 1,
     \ 'gitcommit' : 1,
     \}
+
+
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" jedi-vim
+" cd ~/.vim/bundle
+" git clone git://github.com/davidhalter/jedi-vim.git
+" sudo pip install jedi
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+" 配合Rupertab插件实现<Tab>补全
+
+" shows all the usages of a name
+let g:jedi#usages_command = "<leader>z"
+" typical goto function
+let g:jedi#goto_assignments_command = "<leader>g"
+" follow identifier as far as possible,
+" includes imports and statements
+let g:jedi#goto_command = "<leader>d"
+" Show Documentation/Pydoc
+let g:jedi#documentation_command = "K"
+let g:jedi#rename_command = "<leader>r"
+"let g:jedi#completions_command = "<c-x><c-o>"
+
+let g:jedi#use_splits_not_buffers = 'right'
+let g:jedi#popup_select_first = 0
+let g:jedi#popup_on_dot = 0
+" let g:jedi#goto_definitions_command = ""
+
+" 使用:Pyimport命令 打开模块
+"`:Pyimport module_name` Open module.
 
 
 "弃用"  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
