@@ -548,6 +548,8 @@ let g:jedi#rename_command = "<leader>r"
 let g:jedi#use_splits_not_buffers = 'right'
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
+" 禁用自动完成
+let g:jedi#completions_enabled = 0
 " let g:jedi#goto_definitions_command = ""
 
 " 使用:Pyimport命令 打开模块
