@@ -352,7 +352,6 @@ au FileType python let b:delimitMate_nesting_quotes = ['"']
 " zk 向上移动 到前一折叠的结束处
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 let g:SimpylFold_docstring_preview = 1
-let g:SimpylFold_fold_docstring=0
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " vim-isort
