@@ -325,6 +325,22 @@ imap <c-f> <Plug>delimitMateS-Tab
 au FileType python let b:delimitMate_nesting_quotes = ['"']
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" SimpylFold
+" Python代码折叠
+" git clone git://github.com/tmhedberg/SimpylFold
+" zc 折叠
+" zo 展开折叠
+" zC 对所在范围内所有嵌套的折叠点进行折叠
+" zO 对所在范围内所有嵌套的折叠点展开
+" [z 到当前打开的折叠的开始处
+" ]z 到当前打开的折叠的末尾处
+" zj 向下移动 到下一个折叠的开始处
+" zk 向上移动 到前一折叠的结束处
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+let g:SimpylFold_docstring_preview = 1
+let g:SimpylFold_fold_docstring=0
+
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " vim-isort
 " 排序python import
 " pip install isort

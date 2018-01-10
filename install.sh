@@ -14,6 +14,7 @@ cd ~/.vim/bundle
 git clone https://github.com/Raimondi/delimitMate
 git clone https://github.com/SirVer/ultisnips
 git clone https://github.com/Valloric/YouCompleteMe
+git clone https://github.com/davidhalter/jedi-vim
 git clone https://github.com/easymotion/vim-easymotion
 git clone https://github.com/fisadev/vim-isort
 git clone https://github.com/honza/vim-snippets
@@ -29,9 +30,9 @@ git clone https://github.com/scrooloose/nerdcommenter
 git clone https://github.com/scrooloose/nerdtree
 git clone https://github.com/scrooloose/syntastic
 git clone https://github.com/tell-k/vim-autopep8
+git clone https://github.com/tmhedberg/SimpylFold
 git clone https://github.com/vim-airline/vim-airline
 git clone https://github.com/vim-airline/vim-airline-themes
-git clone https://github.com/davidhalter/jedi-vim
 #git clone git://github.com/mattn/vim-xxdcursor
 #git clone git://github.com/dhruvasagar/vim-table-mode
 #git clone git://github.com/ervandew/supertab
