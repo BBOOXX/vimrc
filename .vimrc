@@ -84,6 +84,9 @@ noremap <F1> <Esc>
 " F12 可打印字符开关
 nnoremap <F12> :set list! list?<CR>
 
+" 空格折叠代码
+nnoremap <space> za
+
 " Better copy & paste
 " 更友好的粘贴
 set pastetoggle=<F2>
@@ -234,6 +237,15 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" 折叠方法
+" manual    手工折叠
+" indent    使用缩进表示折叠
+" expr      使用表达式定义折叠
+" syntax    使用语法定义折叠
+" diff      对没有更改的文本进行折叠
+" marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
+set foldmethod=indent
+set foldlevel=99
 " 禁用自动折叠
 set nofoldenable
 
@@ -328,8 +340,10 @@ au FileType python let b:delimitMate_nesting_quotes = ['"']
 " SimpylFold
 " Python代码折叠
 " git clone git://github.com/tmhedberg/SimpylFold
-" zc 折叠
-" zo 展开折叠
+" zi 打开关闭折叠功能
+" za 折叠或展开
+" zc 折叠当前
+" zo 展开当前
 " zC 对所在范围内所有嵌套的折叠点进行折叠
 " zO 对所在范围内所有嵌套的折叠点展开
 " [z 到当前打开的折叠的开始处
