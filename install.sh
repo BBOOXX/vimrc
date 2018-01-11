@@ -33,6 +33,7 @@ git clone https://github.com/tell-k/vim-autopep8
 git clone https://github.com/tmhedberg/SimpylFold
 git clone https://github.com/vim-airline/vim-airline
 git clone https://github.com/vim-airline/vim-airline-themes
+git clone https://github.com/cespare/vim-toml
 #git clone git://github.com/mattn/vim-xxdcursor
 #git clone git://github.com/dhruvasagar/vim-table-mode
 #git clone git://github.com/ervandew/supertab
