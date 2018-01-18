@@ -549,8 +549,8 @@ let g:ycm_min_num_of_chars_for_completion = 1               " 触发补全字数
 let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_seed_identifiers_with_syntax=1                    " 开启语法关键字补全
 let g:ycm_use_ultisnips_completer = 1                       " 提示UltiSnips
-nnoremap <leader>d :YcmCompleter GoTo<CR>
-nnoremap K :YcmCompleter GetDoc<CR>
+"nnoremap <leader>d :YcmCompleter GoTo<CR>
+"nnoremap K :YcmCompleter GetDoc<CR>
 
 " 黑名单,不启用
 let g:ycm_filetype_blacklist = {
@@ -567,6 +567,12 @@ let g:ycm_filetype_blacklist = {
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 " 配合Rupertab插件实现<Tab>补全
 
+" 禁用自动完成
+let g:jedi#completions_enabled = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#smart_auto_mappings = 1
+let g:jedi#show_call_signatures_delay = 100
 " shows all the usages of a name
 let g:jedi#usages_command = "<leader>z"
 " typical goto function
@@ -577,14 +583,8 @@ let g:jedi#goto_command = "<leader>d"
 " Show Documentation/Pydoc
 let g:jedi#documentation_command = "K"
 let g:jedi#rename_command = "<leader>r"
-"let g:jedi#completions_command = "<c-x><c-o>"
-
 let g:jedi#use_splits_not_buffers = 'right'
-let g:jedi#popup_select_first = 0
-let g:jedi#popup_on_dot = 0
-" 禁用自动完成
-let g:jedi#completions_enabled = 0
-" let g:jedi#goto_definitions_command = ""
+"let g:jedi#completions_command = "<c-x><c-o>"
 
 " 使用:Pyimport命令 打开模块
 "`:Pyimport module_name` Open module.
