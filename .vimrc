@@ -357,6 +357,7 @@ au FileType python let b:delimitMate_nesting_quotes = ['"']
 " zk 向上移动 到前一折叠的结束处
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 let g:SimpylFold_docstring_preview = 1
+"let g:SimpylFold_fold_docstring=0
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " vim-isort
@@ -566,13 +567,14 @@ let g:ycm_filetype_blacklist = {
 " sudo pip install jedi
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 " 配合Rupertab插件实现<Tab>补全
-
-" 禁用自动完成
-let g:jedi#completions_enabled = 0
+" 禁用初始化vim配置
+let g:jedi#auto_vim_configuration = 0
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
-let g:jedi#smart_auto_mappings = 1
 let g:jedi#show_call_signatures_delay = 100
+let g:jedi#smart_auto_mappings = 1
+" 禁用自动完成
+let g:jedi#completions_enabled = 0
 " shows all the usages of a name
 let g:jedi#usages_command = "<leader>z"
 " typical goto function
