@@ -1,3 +1,8 @@
+" see: https://github.com/vim/vim/issues/3117#issuecomment-402622616
+if has('python3')
+  silent! python3 1
+endif
+
 " Automatic reloading of .vimrc
 " 自动加载.vimrc文件
 autocmd! bufwritepost .vimrc source %
@@ -244,7 +249,7 @@ set noswapfile
 " syntax    使用语法定义折叠
 " diff      对没有更改的文本进行折叠
 " marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
-set foldmethod=indent
+set foldmethod=marker
 set foldlevel=99
 " 禁用自动折叠
 set nofoldenable
@@ -591,126 +596,127 @@ let g:jedi#use_splits_not_buffers = 'right'
 " 使用:Pyimport命令 打开模块
 "`:Pyimport module_name` Open module.
 
-
-"弃用"  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-"弃用"  " Rupertab
-"弃用"  " Tab增强
-"弃用"  " git clone https://github.com/ervandew/supertab
-"弃用"  " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-"弃用"  " let g:SuperTabDefaultCompletionType = "context"
-"弃用"  ""let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-"弃用"  
-"弃用"  
-"弃用"  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-"弃用"  " vim-table-mode
-"弃用"  " 快速画Markdown表格
-"弃用"  " git clone git://github.com/dhruvasagar/vim-table-mode
-"弃用"  " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-"弃用"  " <Leader>tm      开启
-"弃用"  " 输入|| 创建顶端或底端
-"弃用"  
-"弃用"  
-"弃用"  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-"弃用"  " DrawIt
-"弃用"  " 快速画ASCII图
-"弃用"  " git clone git://github.com/vim-scripts/DrawIt
-"弃用"  " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-"弃用"  " <Leader>di       开始
-"弃用"  " <Leader>ds       结束
-"弃用"  " h j k l          移动
-"弃用"  " 上下左右         画线
-"弃用"  " ^ v > <          小箭头
-"弃用"  " <Leader> 加 ^v>< 大箭头
-"弃用"  " <space>          切换橡皮/画笔
-"弃用"  
-"弃用"  " 斜线和键盘方向一致
-"弃用"  " Home    Up   Pgup
-"弃用"  "     \   |   /
-"弃用"  "      \  |  /
-"弃用"  "       \ | /
-"弃用"  "        \|/
-"弃用"  " Left----------Right
-"弃用"  "        /|\
-"弃用"  "       / | \
-"弃用"  "      /  |  \
-"弃用"  "     /   |   \
-"弃用"  "  End   Down  Pgdn
-"弃用"  
-"弃用"  " V-Block 模式(C-V):
-"弃用"  " <Leader>a       画对角线
-"弃用"  " <Leader>l       不带箭头
-"弃用"  " <Leader>b       矩形
-"弃用"  " <Leader>e       椭圆
-"弃用"  " <Leader>f       填充
-"弃用"  " <Leader>s       整行填充空格
-"弃用"  " <Leader>c       画布填充空格
-"弃用"  " <C-LeftMouse>   移动
-"弃用"  
-"弃用"  " 设置笔刷:
-"弃用"  " V-Block 模式(C-V)选中文本后
-"弃用"  " `"[a-z]y` 或 `:'<,'>SetBrush [a-z]`
-"弃用"  " 设置选定文本为笔刷,[a-z]为寄存器
-"弃用"  " 使用笔刷:
-"弃用"  " <shift-leftmouse> 拖动鼠标
-"弃用"  " `:SetBrush [a-z]` 设置当前笔刷
-"弃用"  " <Leader>r[a-z]    使用笔刷(笔刷空白不透明)
-"弃用"  " <Leader>p[a-z]    使用笔刷(笔刷空白透明)
-"弃用"  
-"弃用"  " 命令模式:
-"弃用"  " `:DInrml`         标准模式
-"弃用"  " `:DIsngl`         单线模式
-"弃用"  " `:DIdbl`          双线模式
-"弃用"  
-"弃用"  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-"弃用"  " markdown-preview.vim
-"弃用"  " 可以通过浏览器实时预览 markdown 文件
-"弃用"  " git clone https://github.com/iamcco/markdown-preview.vim.git
-"弃用"  " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-"弃用"  let g:mkdp_path_to_chrome = "google-chrome"
-"弃用"  " 设置 chrome 浏览器的路径（或是启动 chrome（或其他现代浏览器）的命令）
-"弃用"  
-"弃用"  let g:mkdp_auto_start = 0
-"弃用"  " 设置为 1 可以在打开 markdown 文件的时候自动打开浏览器预览，
-"弃用"  " 只在打开 markdown 文件的时候打开一次
-"弃用"  
-"弃用"  let g:mkdp_auto_open = 0
-"弃用"  " 设置为 1 在编辑 markdown 的时候检查预览窗口是否已经打开，
-"弃用"  " 否则自动打开预览窗口
-"弃用"  
-"弃用"  let g:mkdp_auto_close = 1
-"弃用"  " 在切换 buffer 的时候自动关闭预览窗口，
-"弃用"  " 设置为 0 则在切换 buffer 的时候不自动关闭预览窗口
-"弃用"  
-"弃用"  let g:mkdp_refresh_slow = 0
-"弃用"  " 设置为 1 则只有在保存文件，或退出插入模式的时候更新预览，
-"弃用"  " 默认为 0，实时更新预览
-"弃用"  
-"弃用"  
-"弃用"  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-"弃用"  " jedi-vim
-"弃用"  " cd ~/.vim/bundle
-"弃用"  " git clone git://github.com/davidhalter/jedi-vim.git
-"弃用"  " sudo pip install jedi
-"弃用"  " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-"弃用"  " 配合Rupertab插件实现<Tab>补全
-"弃用"  
-"弃用"  " shows all the usages of a name
-"弃用"  let g:jedi#usages_command = "<leader>z"
-"弃用"  " typical goto function
-"弃用"  let g:jedi#goto_assignments_command = "<leader>g"
-"弃用"  " follow identifier as far as possible,
-"弃用"  " includes imports and statements
-"弃用"  let g:jedi#goto_command = "<leader>d"
-"弃用"  " Show Documentation/Pydoc
-"弃用"  let g:jedi#documentation_command = "K"
-"弃用"  let g:jedi#rename_command = "<leader>r"
-"弃用"  let g:jedi#completions_command = "<c-x><c-o>"
-"弃用"  
-"弃用"  let g:jedi#use_splits_not_buffers = 'right'
-"弃用"  let g:jedi#popup_select_first = 0
-"弃用"  let g:jedi#popup_on_dot = 0
-"弃用"  " let g:jedi#goto_definitions_command = ""
-"弃用"  
-"弃用"  " 使用:Pyimport命令 打开模块
-"弃用"  "`:Pyimport module_name` Open module.
-
+" 弃用---------- {{{
+"  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+"  " Rupertab
+"  " Tab增强
+"  " git clone https://github.com/ervandew/supertab
+"  " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+"  " let g:SuperTabDefaultCompletionType = "context"
+"  ""let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+"  
+"  
+"  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+"  " vim-table-mode
+"  " 快速画Markdown表格
+"  " git clone git://github.com/dhruvasagar/vim-table-mode
+"  " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+"  " <Leader>tm      开启
+"  " 输入|| 创建顶端或底端
+"  
+"  
+"  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+"  " DrawIt
+"  " 快速画ASCII图
+"  " git clone git://github.com/vim-scripts/DrawIt
+"  " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+"  " <Leader>di       开始
+"  " <Leader>ds       结束
+"  " h j k l          移动
+"  " 上下左右         画线
+"  " ^ v > <          小箭头
+"  " <Leader> 加 ^v>< 大箭头
+"  " <space>          切换橡皮/画笔
+"  
+"  " 斜线和键盘方向一致
+"  " Home    Up   Pgup
+"  "     \   |   /
+"  "      \  |  /
+"  "       \ | /
+"  "        \|/
+"  " Left----------Right
+"  "        /|\
+"  "       / | \
+"  "      /  |  \
+"  "     /   |   \
+"  "  End   Down  Pgdn
+"  
+"  " V-Block 模式(C-V):
+"  " <Leader>a       画对角线
+"  " <Leader>l       不带箭头
+"  " <Leader>b       矩形
+"  " <Leader>e       椭圆
+"  " <Leader>f       填充
+"  " <Leader>s       整行填充空格
+"  " <Leader>c       画布填充空格
+"  " <C-LeftMouse>   移动
+"  
+"  " 设置笔刷:
+"  " V-Block 模式(C-V)选中文本后
+"  " `"[a-z]y` 或 `:'<,'>SetBrush [a-z]`
+"  " 设置选定文本为笔刷,[a-z]为寄存器
+"  " 使用笔刷:
+"  " <shift-leftmouse> 拖动鼠标
+"  " `:SetBrush [a-z]` 设置当前笔刷
+"  " <Leader>r[a-z]    使用笔刷(笔刷空白不透明)
+"  " <Leader>p[a-z]    使用笔刷(笔刷空白透明)
+"  
+"  " 命令模式:
+"  " `:DInrml`         标准模式
+"  " `:DIsngl`         单线模式
+"  " `:DIdbl`          双线模式
+"  
+"  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+"  " markdown-preview.vim
+"  " 可以通过浏览器实时预览 markdown 文件
+"  " git clone https://github.com/iamcco/markdown-preview.vim.git
+"  " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+"  let g:mkdp_path_to_chrome = "google-chrome"
+"  " 设置 chrome 浏览器的路径（或是启动 chrome（或其他现代浏览器）的命令）
+"  
+"  let g:mkdp_auto_start = 0
+"  " 设置为 1 可以在打开 markdown 文件的时候自动打开浏览器预览，
+"  " 只在打开 markdown 文件的时候打开一次
+"  
+"  let g:mkdp_auto_open = 0
+"  " 设置为 1 在编辑 markdown 的时候检查预览窗口是否已经打开，
+"  " 否则自动打开预览窗口
+"  
+"  let g:mkdp_auto_close = 1
+"  " 在切换 buffer 的时候自动关闭预览窗口，
+"  " 设置为 0 则在切换 buffer 的时候不自动关闭预览窗口
+"  
+"  let g:mkdp_refresh_slow = 0
+"  " 设置为 1 则只有在保存文件，或退出插入模式的时候更新预览，
+"  " 默认为 0，实时更新预览
+"  
+"  
+"  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+"  " jedi-vim
+"  " cd ~/.vim/bundle
+"  " git clone git://github.com/davidhalter/jedi-vim.git
+"  " sudo pip install jedi
+"  " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+"  " 配合Rupertab插件实现<Tab>补全
+"  
+"  " shows all the usages of a name
+"  let g:jedi#usages_command = "<leader>z"
+"  " typical goto function
+"  let g:jedi#goto_assignments_command = "<leader>g"
+"  " follow identifier as far as possible,
+"  " includes imports and statements
+"  let g:jedi#goto_command = "<leader>d"
+"  " Show Documentation/Pydoc
+"  let g:jedi#documentation_command = "K"
+"  let g:jedi#rename_command = "<leader>r"
+"  let g:jedi#completions_command = "<c-x><c-o>"
+"  
+"  let g:jedi#use_splits_not_buffers = 'right'
+"  let g:jedi#popup_select_first = 0
+"  let g:jedi#popup_on_dot = 0
+"  " let g:jedi#goto_definitions_command = ""
+"  
+"  " 使用:Pyimport命令 打开模块
+"  "`:Pyimport module_name` Open module.
+"
+" }}}
