@@ -120,12 +120,11 @@ nnoremap <F3> :call HideNumber()<CR>
 " <Leader>b 快速设置 pdb 调试断点
 "autocmd FileType python map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 autocmd FileType python noremap <Leader>b Oimport pudb; pu.db  # BREAKPOINT<C-c>
-
-" <F4> 输入参数后运行文件
-autocmd FileType python noremap <F4> :!python %<space>
-
 " <F5> 运行文件
-autocmd FileType python noremap <F5> :!python %<cr>
+autocmd FileType python noremap <F5> :!python %<CR>
+" <F6> 输入参数后运行文件
+autocmd FileType python noremap <F6> :!python %<space>
+
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " Better navigating through omnicomplete option list
@@ -187,13 +186,13 @@ set cursorcolumn
 set scrolloff=7
 
 "界面配置-------}}}
-"
+
 "通用配置-------{{{
 
 "see: https://github.com/vim/vim/issues/3117#issuecomment-402622616
-if has('python3')
-  silent! python3 1
-endif
+"if has('python3') && !has('patch-8.1.201')
+  "silent! python3 1
+"endif
 
 " 修复 macOS Sierra 中 vim 剪板题
 " 需要 brew install reattach-to-user-namespace
@@ -201,7 +200,7 @@ set clipboard=unnamed
 
 " 打开文件自动定位到上次编辑位置
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 " Mouse and backspace
@@ -342,9 +341,9 @@ call pathogen#infect()
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 " 自动闭合
 " let delimitMate_autoclose = 0
-inoremap <c-f> <Plug>delimitMateS-Tab
+inoremap <C-f> <Plug>delimitMateS-Tab
 ""for python docstring
-au FileType python let b:delimitMate_nesting_quotes = ['"']
+autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " SimpylFold
@@ -383,7 +382,7 @@ let g:airline_right_sep = ''
 " http://www.zfanw.com/blog/zencoding-vim-tutorial-chinese.html
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 autocmd FileType html,css EmmetInstall
-let g:user_emmet_expandabbr_key = '<leader><leader><Tab>'
+let g:user_emmet_expandabbr_key = '<Leader><Leader><Tab>'
 let g:user_emmet_install_global = 0
 let g:user_emmet_mode='i'    "only enable insert mode functions.
 " let g:user_emmet_leader_key='<C-Y>'
@@ -412,10 +411,10 @@ let g:rbpt_colorpairs = [
     \ ['red',         'firebrick3'],
     \ ]
 
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+autocmd VimEnter * RainbowParenthesesToggle
+autocmd Syntax * RainbowParenthesesLoadRound
+autocmd Syntax * RainbowParenthesesLoadSquare
+autocmd Syntax * RainbowParenthesesLoadBraces
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " ultisnips
@@ -423,9 +422,9 @@ au Syntax * RainbowParenthesesLoadBraces
 " git clone git://github.com/SirVer/ultisnips
 " git clone git://github.com/honza/vim-snippets
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-let g:UltiSnipsExpandTrigger="<leader><tab>"
-let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
-let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
+let g:UltiSnipsExpandTrigger="<Leader><tab>"
+let g:UltiSnipsJumpForwardTrigger="<Leader><tab>"
+let g:UltiSnipsJumpBackwardTrigger="<Leader><s-tab>"
 " If you want :UltiSnipsEdit to split your window.
 " let g:UltiSnipsEditSplit="vertical"
 
@@ -436,11 +435,11 @@ let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 let g:EasyMotion_smartcase = 1
 "let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
-map <Leader><leader>f <Plug>(easymotion-s)
-map <Leader><leader>h <Plug>(easymotion-linebackward)
+map <Leader><Leader>f <Plug>(easymotion-s)
+map <Leader><Leader>h <Plug>(easymotion-linebackward)
 map <Leader><Leader>j <Plug>(easymotion-j)
 map <Leader><Leader>k <Plug>(easymotion-k)
-map <Leader><leader>l <Plug>(easymotion-lineforward)
+map <Leader><Leader>l <Plug>(easymotion-lineforward)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 
@@ -529,7 +528,7 @@ let g:ycm_min_num_of_chars_for_completion = 2               " 触发补全字数
 let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_seed_identifiers_with_syntax=1                    " 开启语法关键字补全
 let g:ycm_use_ultisnips_completer = 1                       " 提示UltiSnips
-"nnoremap <leader>d :YcmCompleter GoTo<CR>
+"nnoremap <Leader>d :YcmCompleter GoTo<CR>
 "nnoremap K :YcmCompleter GetDoc<CR>
 
 "let g:ycm_semantic_triggers =  {
@@ -567,31 +566,22 @@ let g:jedi#smart_auto_mappings = 1
 " 禁用自动完成
 let g:jedi#completions_enabled = 0
 " shows all the usages of a name
-let g:jedi#usages_command = "<leader>z"
+let g:jedi#usages_command = "<Leader>z"
 " typical goto function
-let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_assignments_command = "<Leader>g"
 " follow identifier as far as possible,
 " includes imports and statements
-let g:jedi#goto_command = "<leader>d"
+let g:jedi#goto_command = "<Leader>d"
 " Show Documentation/Pydoc
 let g:jedi#documentation_command = "K"
-let g:jedi#rename_command = "<leader>r"
+let g:jedi#rename_command = "<Leader>r"
 let g:jedi#use_splits_not_buffers = 'right'
-"let g:jedi#completions_command = "<c-x><c-o>"
+"let g:jedi#completions_command = "<C-x><C-o>"
 
 " 使用:Pyimport命令 打开模块
 "`:Pyimport module_name` Open module.
 
 "弃用--------------{{{
-"  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-"  " Rupertab
-"  " Tab增强
-"  " git clone https://github.com/ervandew/supertab
-"  " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-"  " let g:SuperTabDefaultCompletionType = "context"
-"  ""let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-"
-"
 "  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 "  " vim-table-mode
 "  " 快速画Markdown表格
@@ -599,8 +589,7 @@ let g:jedi#use_splits_not_buffers = 'right'
 "  " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 "  " <Leader>tm      开启
 "  " 输入|| 创建顶端或底端
-"
-"
+
 "  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 "  " DrawIt
 "  " 快速画ASCII图
@@ -613,7 +602,7 @@ let g:jedi#use_splits_not_buffers = 'right'
 "  " ^ v > <          小箭头
 "  " <Leader> 加 ^v>< 大箭头
 "  " <space>          切换橡皮/画笔
-"
+
 "  " 斜线和键盘方向一致
 "  " Home    Up   Pgup
 "  "     \   |   /
@@ -626,7 +615,7 @@ let g:jedi#use_splits_not_buffers = 'right'
 "  "      /  |  \
 "  "     /   |   \
 "  "  End   Down  Pgdn
-"
+
 "  " V-Block 模式(C-V):
 "  " <Leader>a       画对角线
 "  " <Leader>l       不带箭头
@@ -636,7 +625,7 @@ let g:jedi#use_splits_not_buffers = 'right'
 "  " <Leader>s       整行填充空格
 "  " <Leader>c       画布填充空格
 "  " <C-LeftMouse>   移动
-"
+
 "  " 设置笔刷:
 "  " V-Block 模式(C-V)选中文本后
 "  " `"[a-z]y` 或 `:'<,'>SetBrush [a-z]`
@@ -646,12 +635,12 @@ let g:jedi#use_splits_not_buffers = 'right'
 "  " `:SetBrush [a-z]` 设置当前笔刷
 "  " <Leader>r[a-z]    使用笔刷(笔刷空白不透明)
 "  " <Leader>p[a-z]    使用笔刷(笔刷空白透明)
-"
+
 "  " 命令模式:
 "  " `:DInrml`         标准模式
 "  " `:DIsngl`         单线模式
 "  " `:DIdbl`          双线模式
-"
+
 "  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 "  " markdown-preview.vim
 "  " 可以通过浏览器实时预览 markdown 文件
@@ -659,15 +648,15 @@ let g:jedi#use_splits_not_buffers = 'right'
 "  " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 "  let g:mkdp_path_to_chrome = "google-chrome"
 "  " 设置 chrome 浏览器的路径（或是启动 chrome（或其他现代浏览器）的命令）
-"
+
 "  let g:mkdp_auto_start = 0
 "  " 设置为 1 可以在打开 markdown 文件的时候自动打开浏览器预览，
 "  " 只在打开 markdown 文件的时候打开一次
-"
+
 "  let g:mkdp_auto_open = 0
 "  " 设置为 1 在编辑 markdown 的时候检查预览窗口是否已经打开，
 "  " 否则自动打开预览窗口
-"
+
 "  let g:mkdp_auto_close = 1
 "  " 在切换 buffer 的时候自动关闭预览窗口，
 "  " 设置为 0 则在切换 buffer 的时候不自动关闭预览窗口
@@ -675,70 +664,13 @@ let g:jedi#use_splits_not_buffers = 'right'
 "  let g:mkdp_refresh_slow = 0
 "  " 设置为 1 则只有在保存文件，或退出插入模式的时候更新预览，
 "  " 默认为 0，实时更新预览
-"
-"
-"  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-"  " jedi-vim
-"  " cd ~/.vim/bundle
-"  " git clone git://github.com/davidhalter/jedi-vim.git
-"  " sudo pip install jedi
-"  " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-"  " 配合Rupertab插件实现<Tab>补全
-"
-"  " shows all the usages of a name
-"  let g:jedi#usages_command = "<leader>z"
-"  " typical goto function
-"  let g:jedi#goto_assignments_command = "<leader>g"
-"  " follow identifier as far as possible,
-"  " includes imports and statements
-"  let g:jedi#goto_command = "<leader>d"
-"  " Show Documentation/Pydoc
-"  let g:jedi#documentation_command = "K"
-"  let g:jedi#rename_command = "<leader>r"
-"  let g:jedi#completions_command = "<c-x><c-o>"
-"
-"  let g:jedi#use_splits_not_buffers = 'right'
-"  let g:jedi#popup_select_first = 0
-"  let g:jedi#popup_on_dot = 0
-"  " let g:jedi#goto_definitions_command = ""
-"
-"  " 使用:Pyimport命令 打开模块
-"  "`:Pyimport module_name` Open module.
 
 " " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " " vim-xxdcursor
 " " xxd 模式光标
 " " git clone git://github.com/mattn/vim-xxdcursor
 " " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-" "
 " " :set ft=xxd
-"
-" " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-" " syntastic
-" " 静态代码检查
-" " git clone https://github.com/scrooloose/syntastic
-" " sudo pip install pep8 pyflakes
-" " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-" " :lnext     跳转到下一个错误
-" " :lprevious 跳转到上一个错误
-" " :lclose    关闭错误窗口
-" " 修改高亮的背景色, 适应主题
-" highlight syntasticerrorsign guifg=white guibg=black
-" set statusline+=%#warningmsg#
-" set statusline+=%{syntasticstatuslineflag()}
-" set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" "let g:syntastic_python_checkers = ['pyflakes', 'pep8']
-" " pep8 闹眼睛关掉了 以后随手f8格式化一下
-" let g:syntastic_python_checkers = ['pyflakes']
-" " 被动模式
-" "let g:syntastic_mode_map = {
-" "    \ 'mode': 'passive',
-" "    \ 'active_filetypes': [],
-" "    \ 'passive_filetypes': ['python'] }
 
 " " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " " ctrlp
@@ -752,23 +684,5 @@ let g:jedi#use_splits_not_buffers = 'right'
 " set wildignore+=*/coverage/*
 " set wildignore+=*/env/*
 " set wildignore+=*/.git/*
-
-" " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-" " vim-isort
-" " 排序python import
-" " pip install isort
-" " git clone git://github.com/fisadev/vim-isort
-" " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-" let g:vim_isort_map = '<f6>'
-
-" " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-" " vim-autopep8
-" " 按照pep8标准格式化python代码
-" " git clone https://github.com/tell-k/vim-autopep8
-" " sudo pip install autopep8
-" " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-" autocmd filetype python nnoremap <buffer> <f8> :call autopep8()<cr>
-" let g:autopep8_max_line_length=150
-" let g:autopep8_disable_show_diff=1
 
 "弃用--------------}}}
