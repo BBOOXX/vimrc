@@ -45,12 +45,16 @@ git clone https://github.com/vim-airline/vim-airline
 git clone https://github.com/vim-airline/vim-airline-themes
 git clone https://github.com/w0rp/ale
 
-cd ./YouCompleteMe
+cd ~/.vim/bundle/YouCompleteMe
 git submodule update --init --recursive
 python ~/.vim/bundle/YouCompleteMe/install.py
+
+#cd ~/.vim/bundle/jedi-vim
+#git submodule update --init --recursive
 cd ~
+
 #echo "通过pip安装依赖"
-pip install jedi autopep8 isort flake8
+pip install yapf isort pyflakes
 #echo "移动.vimrc文件到用户目录"
 mv ~/vimrc/.vimrc ~
 #echo "Done."

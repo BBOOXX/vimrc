@@ -476,7 +476,7 @@ let g:ale_lint_on_text_changed = 'normal'
 "let g:ale_set_quickfix = 1
 let g:ale_list_window_size = 5
 let g:ale_linters = {
-    \ 'python' : ['flake8'],
+    \ 'python' : ['pyflakes'],
     \}
 
 autocmd FileType python,json nnoremap <buffer> <F8> :ALEFix<CR>
@@ -484,16 +484,13 @@ autocmd FileType python,json nnoremap <buffer> <F8> :ALEFix<CR>
 autocmd QuitPre * if empty(&bt) | lclose | endif
 
 let g:ale_fixers = {
-    \'python' : ['isort', 'autopep8'],
+    \'python' : ['isort', 'yapf'],
     \'json' : ['jq'],
     \}
-let g:ale_python_autopep8_options = "--max-line-length=150"
 
 if filereadable("./Pipfile")
-    let g:ale_python_flake8_executable = "pipenv"
+    let g:ale_python_pyflakes_executable = "pipenv"
 endif
-
-let g:ale_python_flake8_options = "--max-line-length=150"
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " vim-easy-align
@@ -520,6 +517,7 @@ xmap ga <Plug>(EasyAlign)
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 let g:ycm_collect_identifiers_from_comments_and_strings = 1 " 注释和字符串中的文字也会被收入补全
 let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_python_binary_path = 'python'
 let g:ycm_complete_in_comments = 1                          " 在注释输入中也能补全
 let g:ycm_complete_in_strings = 1                           " 在字符串输入中也能补全
 "let g:ycm_goto_buffer_command = 'horizontal-split'         " 跳转到定义处, 分屏打开
