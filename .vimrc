@@ -515,20 +515,32 @@ xmap ga <Plug>(EasyAlign)
 " git submodule update --init --recursive
 " python ~/.vim/bundle/YouCompleteMe/install.py --racer-completer
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-let g:ycm_collect_identifiers_from_comments_and_strings = 1 " 注释和字符串中的文字也会被收入补全
-let g:ycm_collect_identifiers_from_tags_files = 1
+" 注释和字符串中的文字会被收集用来补全
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_collect_identifiers_from_tags_files = 0
 let g:ycm_python_binary_path = 'python'
-let g:ycm_complete_in_comments = 1                          " 在注释输入中也能补全
-let g:ycm_complete_in_strings = 1                           " 在字符串输入中也能补全
-"let g:ycm_goto_buffer_command = 'horizontal-split'         " 跳转到定义处, 分屏打开
-let g:ycm_key_invoke_completion = '<Leader><tab>'           " 直接触发自动补全 insert模式下
-let g:ycm_key_list_stop_completion = ['<CR>']               " 回车作为选中
-let g:ycm_min_num_of_chars_for_completion = 2               " 触发补全字数
+"退出I模式时自动关闭preview窗口
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" 在注释输入中补全
+let g:ycm_complete_in_comments = 1
+" 在字符串输入中补全
+let g:ycm_complete_in_strings = 1
+" 跳转到定义处, 分屏打开
+let g:ycm_goto_buffer_command = 'horizontal-split'
+" 直接触发补全
+let g:ycm_key_invoke_completion = '<Leader><tab>'
+" 回车作为选中
+let g:ycm_key_list_stop_completion = ['<CR>']
+" 触发补全字数
+let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_register_as_syntastic_checker = 0
-let g:ycm_seed_identifiers_with_syntax=1                    " 开启语法关键字补全
-let g:ycm_use_ultisnips_completer = 1                       " 提示UltiSnips
-"nnoremap <Leader>d :YcmCompleter GoTo<CR>
-"nnoremap K :YcmCompleter GetDoc<CR>
+" 开启语法关键字补全
+let g:ycm_seed_identifiers_with_syntax=1
+" 提示UltiSnips
+let g:ycm_use_ultisnips_completer = 1
+nnoremap <Leader>d :YcmCompleter GoTo<CR>
+nnoremap K :YcmCompleter GetDoc<CR>
 
 "let g:ycm_semantic_triggers =  {
     "\ "c,cpp,python,java,go,erlang,perl": ['re!\w{2}'],
@@ -548,37 +560,6 @@ let g:ycm_filetype_whitelist = {
     \ 'vim' : 1,
     \ 'sshconfig' : 1,
     \}
-
-" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-" jedi-vim
-" cd ~/.vim/bundle
-" git clone git://github.com/davidhalter/jedi-vim.git
-" sudo pip install jedi
-" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-" 配合Rupertab插件实现<Tab>补全
-" 禁用初始化vim配置
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#popup_select_first = 0
-let g:jedi#popup_on_dot = 0
-let g:jedi#show_call_signatures_delay = 100
-let g:jedi#smart_auto_mappings = 1
-" 禁用自动完成
-let g:jedi#completions_enabled = 0
-" shows all the usages of a name
-let g:jedi#usages_command = "<Leader>z"
-" typical goto function
-let g:jedi#goto_assignments_command = "<Leader>g"
-" follow identifier as far as possible,
-" includes imports and statements
-let g:jedi#goto_command = "<Leader>d"
-" Show Documentation/Pydoc
-let g:jedi#documentation_command = "K"
-let g:jedi#rename_command = "<Leader>r"
-let g:jedi#use_splits_not_buffers = 'right'
-"let g:jedi#completions_command = "<C-x><C-o>"
-
-" 使用:Pyimport命令 打开模块
-"`:Pyimport module_name` Open module.
 
 "弃用--------------{{{
 "  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
