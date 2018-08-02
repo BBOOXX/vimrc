@@ -539,7 +539,7 @@ let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_seed_identifiers_with_syntax=1
 " 提示UltiSnips
 let g:ycm_use_ultisnips_completer = 1
-nnoremap <Leader>d :YcmCompleter GoTo<CR>
+nnoremap <Leader>d :topleft vertical YcmCompleter GoTo<CR>
 nnoremap K :YcmCompleter GetDoc<CR>
 
 "let g:ycm_semantic_triggers =  {
