@@ -420,7 +420,7 @@ autocmd Syntax * RainbowParenthesesLoadBraces
 " ultisnips
 " 代码片段
 " git clone git://github.com/SirVer/ultisnips
-" git clone git://github.com/honza/vim-snippets
+" git clone git://github.com/BBOOXX/MyVimSnippets
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 let g:UltiSnipsExpandTrigger="<Leader><tab>"
 let g:UltiSnipsJumpForwardTrigger="<Leader><tab>"

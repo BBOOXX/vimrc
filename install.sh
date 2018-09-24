@@ -23,15 +23,16 @@ cd ~/.vim/bundle
 #git clone https://github.com/scrooloose/syntastic
 #git clone https://github.com/tell-k/vim-autopep8
 #git clone https://github.com/davidhalter/jedi-vim
+#git clone https://github.com/honza/vim-snippets
 
 git clone https://github.com/Raimondi/delimitMate
 git clone https://github.com/SirVer/ultisnips
+git clone https://github.com/BBOOXX/MyVimSnippets
 git clone https://github.com/Valloric/YouCompleteMe
 git clone https://github.com/Vimjas/vim-python-pep8-indent
 git clone https://github.com/bps/vim-textobj-python
 git clone https://github.com/cespare/vim-toml
 git clone https://github.com/easymotion/vim-easymotion
-git clone https://github.com/honza/vim-snippets
 git clone https://github.com/junegunn/vim-easy-align
 git clone https://github.com/kana/vim-textobj-user
 git clone https://github.com/kien/rainbow_parentheses.vim
