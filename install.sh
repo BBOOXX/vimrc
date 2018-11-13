@@ -45,6 +45,7 @@ git clone https://github.com/tmhedberg/SimpylFold
 git clone https://github.com/vim-airline/vim-airline
 git clone https://github.com/vim-airline/vim-airline-themes
 git clone https://github.com/w0rp/ale
+git clone https://github.com/CodeFalling/fcitx-vim-osx
 
 cd ~/.vim/bundle/YouCompleteMe
 git submodule update --init --recursive
