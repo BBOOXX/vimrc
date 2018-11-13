@@ -475,7 +475,12 @@ let g:tagbar_autofocus = 1
 " pip install flake8
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 let g:ale_open_list = 1
-let g:ale_lint_on_text_changed = 'normal'
+
+" 关闭实时检测 因为和代码片段有冲突
+"let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_text_changed = 'never'
+" 打开文件时的检测 开启1关闭0
+let g:ale_lint_on_enter = 1
 "let g:ale_set_quickfix = 1
 let g:ale_list_window_size = 5
 let g:ale_linters = {
