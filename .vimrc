@@ -492,7 +492,7 @@ autocmd FileType python,json nnoremap <buffer> <F8> :ALEFix<CR>
 autocmd QuitPre * if empty(&bt) | lclose | endif
 
 let g:ale_fixers = {
-    \'python' : ['isort', 'yapf'],
+    \'python' : ['yapf', 'isort'],
     \'json' : ['jq'],
     \}
 
