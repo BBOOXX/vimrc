@@ -2,7 +2,7 @@
 set -e
 case "$OSTYPE" in
     darwin*)  brew install vim wget ctags cmake jq reattach-to-user-namespace;;
-    linux*)   sudo apt-get install vim-nox-py2 git python-pip wget ctags cmake;;
+    linux*)   sudo apt install vim-nox git wget curl ctags cmake jq;;
     *)        echo "unknown: OS: $OSTYPE, U should install dependences by yourself" ;;
 esac
 #echo "创建文件夹"
@@ -25,27 +25,27 @@ cd ~/.vim/bundle
 #git clone https://github.com/davidhalter/jedi-vim
 #git clone https://github.com/honza/vim-snippets
 
-git clone https://github.com/Raimondi/delimitMate
-git clone https://github.com/SirVer/ultisnips
-git clone https://github.com/BBOOXX/MyVimSnippets
-git clone https://github.com/Valloric/YouCompleteMe
-git clone https://github.com/Vimjas/vim-python-pep8-indent
-git clone https://github.com/bps/vim-textobj-python
-git clone https://github.com/cespare/vim-toml
-git clone https://github.com/easymotion/vim-easymotion
-git clone https://github.com/junegunn/vim-easy-align
-git clone https://github.com/kana/vim-textobj-user
-git clone https://github.com/kien/rainbow_parentheses.vim
-git clone https://github.com/kshenoy/vim-signature
-git clone https://github.com/majutsushi/tagbar
-git clone https://github.com/mattn/emmet-vim
-git clone https://github.com/scrooloose/nerdcommenter
-git clone https://github.com/scrooloose/nerdtree
-git clone https://github.com/tmhedberg/SimpylFold
-git clone https://github.com/vim-airline/vim-airline
-git clone https://github.com/vim-airline/vim-airline-themes
-git clone https://github.com/w0rp/ale
-git clone https://github.com/CodeFalling/fcitx-vim-osx
+git clone --depth=1 https://github.com/Raimondi/delimitMate
+git clone --depth=1 https://github.com/SirVer/ultisnips
+git clone --depth=1 https://github.com/BBOOXX/MyVimSnippets
+git clone --depth=1 https://github.com/Valloric/YouCompleteMe
+git clone --depth=1 https://github.com/Vimjas/vim-python-pep8-indent
+git clone --depth=1 https://github.com/bps/vim-textobj-python
+git clone --depth=1 https://github.com/cespare/vim-toml
+git clone --depth=1 https://github.com/easymotion/vim-easymotion
+git clone --depth=1 https://github.com/junegunn/vim-easy-align
+git clone --depth=1 https://github.com/kana/vim-textobj-user
+git clone --depth=1 https://github.com/kien/rainbow_parentheses.vim
+git clone --depth=1 https://github.com/kshenoy/vim-signature
+git clone --depth=1 https://github.com/majutsushi/tagbar
+git clone --depth=1 https://github.com/mattn/emmet-vim
+git clone --depth=1 https://github.com/scrooloose/nerdcommenter
+git clone --depth=1 https://github.com/scrooloose/nerdtree
+git clone --depth=1 https://github.com/tmhedberg/SimpylFold
+git clone --depth=1 https://github.com/vim-airline/vim-airline
+git clone --depth=1 https://github.com/vim-airline/vim-airline-themes
+git clone --depth=1 https://github.com/w0rp/ale
+git clone --depth=1 https://github.com/CodeFalling/fcitx-vim-osx
 
 cd ~/.vim/bundle/YouCompleteMe
 git submodule update --init --recursive
@@ -54,6 +54,12 @@ python ~/.vim/bundle/YouCompleteMe/install.py
 #cd ~/.vim/bundle/jedi-vim
 #git submodule update --init --recursive
 cd ~
+
+mkdir -p ~/.config/yapf
+cat>~/.config/yapf/style<<EOF
+[style]
+column_limit = 120
+EOF
 
 #echo "通过pip安装依赖"
 pip install yapf isort pyflakes
