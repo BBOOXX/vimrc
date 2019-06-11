@@ -483,6 +483,7 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 1
 "let g:ale_set_quickfix = 1
 let g:ale_list_window_size = 5
+let g:ale_python_pyflakes_auto_pipenv = 1
 let g:ale_linters = {
     \ 'python' : ['pyflakes'],
     \}
@@ -496,9 +497,9 @@ let g:ale_fixers = {
     \'json' : ['jq'],
     \}
 
-if filereadable("./Pipfile")
-    let g:ale_python_pyflakes_executable = "pipenv"
-endif
+" if filereadable("./Pipfile")
+"    let g:ale_python_pyflakes_executable = "pipenv"
+" endif
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " vim-easy-align
@@ -562,12 +563,12 @@ let g:ycm_filetype_blacklist = {
     \}
 
 " 白名单,启用
-let g:ycm_filetype_whitelist = {
-    \ 'python' : 1,
-    \ 'zsh' : 1,
-    \ 'vim' : 1,
-    \ 'sshconfig' : 1,
-    \}
+"let g:ycm_filetype_whitelist = {
+"    \ 'python' : 1,
+"    \ 'zsh' : 1,
+"    \ 'vim' : 1,
+"    \ 'sshconfig' : 1,
+"    \}
 
 "弃用--------------{{{
 "  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

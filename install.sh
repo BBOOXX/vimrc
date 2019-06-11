@@ -2,7 +2,7 @@
 set -e
 case "$OSTYPE" in
     darwin*)  brew install vim wget ctags cmake jq reattach-to-user-namespace;;
-    linux*)   sudo apt install vim-nox git wget curl ctags cmake jq;;
+    linux*)   sudo apt install vim-nox git wget curl ctags cmake jq build-essential;;
     *)        echo "unknown: OS: $OSTYPE, U should install dependences by yourself" ;;
 esac
 #echo "创建文件夹"
