@@ -527,6 +527,7 @@ xmap ga <Plug>(EasyAlign)
 " 注释和字符串中的文字会被收集用来补全
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_collect_identifiers_from_tags_files = 0
+let g:ycm_server_python_interpreter = 'python'
 let g:ycm_python_binary_path = 'python'
 "退出I模式时自动关闭preview窗口
 let g:ycm_autoclose_preview_window_after_insertion = 1
