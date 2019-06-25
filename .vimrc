@@ -479,6 +479,8 @@ let g:ale_open_list = 1
 " 关闭实时检测 因为和代码片段有冲突
 "let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_text_changed = 'never'
+" 离开I模式时检测
+let g:ale_lint_on_insert_leave = 0
 " 打开文件时的检测 开启1关闭0
 let g:ale_lint_on_enter = 1
 "let g:ale_set_quickfix = 1
