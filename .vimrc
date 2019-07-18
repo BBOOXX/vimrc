@@ -457,13 +457,6 @@ let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^
 let NERDTreeNaturalSort=1
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-" NERDTree Git 插件
-" 在 NERDTree 里显示 Git 状态
-" cd ~/.vim/bundle
-" git clone https://github.com/Xuyuanp/nerdtree-git-plugin
-" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " tagbar
 " 大纲式导航
 " cd ~/.vim/bundle
@@ -474,6 +467,24 @@ let NERDTreeNaturalSort=1
 nnoremap <F9> :TagbarToggle<CR>
 " 启动时自动获得焦点
 let g:tagbar_autofocus = 1
+
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" NERDTree Git 插件
+" 在 NERDTree 里显示 Git 状态
+" cd ~/.vim/bundle
+" git clone https://github.com/Xuyuanp/nerdtree-git-plugin
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" Signify
+" 显示 Git Gutter 插件
+" cd ~/.vim/bundle
+" git clone https://github.com/mhinz/vim-signify
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+let g:signify_vcs_list = ['git']
+highlight DiffAdd    cterm=bold ctermbg=30 ctermfg=255
+highlight DiffDelete cterm=bold ctermbg=124 ctermfg=255
+highlight DiffChange cterm=bold ctermbg=55  ctermfg=255
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " ale
