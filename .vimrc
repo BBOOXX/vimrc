@@ -457,6 +457,13 @@ let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^
 let NERDTreeNaturalSort=1
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" NERDTree Git 插件
+" 在 NERDTree 里显示 Git 状态
+" cd ~/.vim/bundle
+" git clone https://github.com/Xuyuanp/nerdtree-git-plugin
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " tagbar
 " 大纲式导航
 " cd ~/.vim/bundle

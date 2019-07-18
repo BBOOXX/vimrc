@@ -45,6 +45,7 @@ git clone --depth=1 https://github.com/tmhedberg/SimpylFold
 git clone --depth=1 https://github.com/vim-airline/vim-airline
 git clone --depth=1 https://github.com/vim-airline/vim-airline-themes
 git clone --depth=1 https://github.com/w0rp/ale
+git clone --depth=1 https://github.com/Xuyuanp/nerdtree-git-plugin
 git clone --depth=1 https://github.com/CodeFalling/fcitx-vim-osx
 
 cd ~/.vim/bundle/YouCompleteMe
