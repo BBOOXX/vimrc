@@ -96,6 +96,8 @@ nnoremap <space> za
 " Better copy & paste
 " 更友好的粘贴
 set pastetoggle=<F2>
+" 退出I模式时自动关闭友好粘贴
+autocmd InsertLeave * set nopaste
 
 " 开关行号函数
 " 绝对行号
