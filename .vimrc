@@ -344,7 +344,7 @@ call pathogen#infect()
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 " 自动闭合
 " let delimitMate_autoclose = 0
-inoremap <C-f> <Plug>delimitMateS-Tab
+imap <C-f> <Plug>delimitMateS-Tab
 ""for python docstring
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 
