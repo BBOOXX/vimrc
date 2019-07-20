@@ -22,14 +22,18 @@ nnoremap ; :
 " 撤销/重做 改为 u/U
 nnoremap U <C-r>
 
+" 命令模式使用 C-k C-j 上下
+cnoremap <C-j> <down>
+cnoremap <C-k> <up>
+
 "-按键替换-----}}}
 
 "-快捷键-------{{{
 
 " easier moving of code blocks
 " v模式中 使用'<Tab>'和'<S-Tab>'进行缩进
-vnoremap <S-Tab> <gv " better indentation
-vnoremap <Tab> >gv   " better indentation
+vnoremap <S-Tab> <gv
+vnoremap <Tab> >gv
 
 " Quick save command
 " <C-g> 快速保存
