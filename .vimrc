@@ -22,9 +22,11 @@ nnoremap ; :
 " 撤销/重做 改为 u/U
 nnoremap U <C-r>
 
-" 命令模式使用 C-k C-j 上下
-cnoremap <C-j> <down>
-cnoremap <C-k> <up>
+" 命令模式增强
+cnoremap <C-j> <t_kd>
+cnoremap <C-k> <t_ku>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
 
 "-按键替换-----}}}
 
