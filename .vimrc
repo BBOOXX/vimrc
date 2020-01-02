@@ -22,15 +22,22 @@ nnoremap ; :
 " 撤销/重做 改为 u/U
 nnoremap U <C-r>
 
+" zt(置顶) 比 zz(置中) 更常用
+nnoremap zz zt
+
+" 阻止F1调出系统帮助
+noremap <F1> <Esc>
+inoremap <F1> <Esc>
+
+"-按键替换-----}}}
+
+"-快捷键-------{{{
+
 " 命令模式增强
 cnoremap <C-j> <t_kd>
 cnoremap <C-k> <t_ku>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
-
-"-按键替换-----}}}
-
-"-快捷键-------{{{
 
 " easier moving of code blocks
 " v模式中 使用'<Tab>'和'<S-Tab>'进行缩进
@@ -52,6 +59,9 @@ noremap <Leader>E :qa!<CR>   " 退出所有窗口
 " Removes highlight of your last search
 " <C-n> 取消搜索高亮
 noremap <C-n> :nohl<CR>
+
+" gd 搜索当前单词 使用"a寄存器
+noremap gd "ayiw/<C-r>a<CR>N
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 " 切换窗口
@@ -84,10 +94,6 @@ vnoremap <Leader>s :sort<CR>
 " 排版文本
 " vmap Q gq
 " nmap Q gqap
-
-" 阻止F1调出系统帮助
-noremap <F1> <Esc>
-inoremap <F1> <Esc>
 
 " F12 可打印字符开关
 nnoremap <F12> :set list! list?<CR>
@@ -125,9 +131,8 @@ endfunc
 nnoremap <F3> :call HideNumber()<CR>
 
 " Python 文件中的快捷键
-" <Leader>b 快速设置 pdb 调试断点
-"autocmd FileType python map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
-autocmd FileType python noremap <Leader>b Oimport pudb; pu.db  # BREAKPOINT<C-c>
+" <Leader>b 快速设置调试断点
+autocmd FileType python noremap <Leader>b Obreakpoint()  # BREAKPOINT<C-c>
 " <F5> 运行文件
 autocmd FileType python noremap <F5> :!python %<CR>
 " <F6> 输入参数后运行文件
