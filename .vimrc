@@ -480,6 +480,14 @@ let NERDTreeNaturalSort=1
 nnoremap <F9> :TagbarToggle<CR>
 " 启动时自动获得焦点
 let g:tagbar_autofocus = 1
+" 按文件中顺序排序
+let g:tagbar_sort = 0
+" 显示行号
+"  0：不显示任何行号
+"  1：显示绝对行号
+"  2：显示相对行号
+" -1：使用全局行号设置
+let g:tagbar_show_linenumbers = -1
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " NERDTree Git 插件
