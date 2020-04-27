@@ -465,7 +465,7 @@ omap / <Plug>(easymotion-tn)
 " cd ~/.vim/bundle
 " git clone https://github.com/scrooloose/nerdtree.git
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-nnoremap <F10> :NERDTreeToggle<CR>
+nnoremap <F9> :NERDTreeToggle<CR>
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
 let NERDTreeNaturalSort=1
 
@@ -477,7 +477,7 @@ let NERDTreeNaturalSort=1
 " sudo apt-get install ctags
 " brew install ctags
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-nnoremap <F9> :TagbarToggle<CR>
+nnoremap <F10> :TagbarToggle<CR>
 " 启动时自动获得焦点
 let g:tagbar_autofocus = 1
 " 按文件中顺序排序
