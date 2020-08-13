@@ -163,7 +163,7 @@ command! Todo call s:todo()
 "OSC52剪贴板
 if !s:darwin
   if exists('##TextYankPost') == 1
-    autocmd TextYankPost * call SendViaOSC52(join(v:event["regcontents"],"\n"))
+    autocmd TextYankPost * silent! call SendViaOSC52(join(v:event["regcontents"],"\n"))
   endif
 endif
 
@@ -352,7 +352,7 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 " 设置主题
 set t_Co=256
-packadd! onedark.vim
+packadd onedark.vim
 color onedark
 
 " 修复 Vim 真彩色的 Bug
