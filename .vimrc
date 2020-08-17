@@ -219,7 +219,7 @@ nnoremap <Leader>E :qa!<CR>
 nnoremap <silent><C-n> :nohl<CR>
 
 " gd 搜索当前单词 使用"a寄存器
-nnoremap <silent>gd "ayiw/<C-r>a<CR>N
+nnoremap <silent>gd "1yiw/<C-r>1<CR>N
 
 " 切换窗口
 nnoremap <C-j> <C-w>j
