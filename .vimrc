@@ -160,13 +160,6 @@ function! s:todo() abort
 endfunction
 command! Todo call s:todo()
 
-"OSC52剪贴板
-if !s:darwin
-  if exists('##TextYankPost') == 1
-    autocmd TextYankPost * silent! call SendViaOSC52(join(v:event["regcontents"],"\n"))
-  endif
-endif
-
 "}}}
 " =========================================================
 "    按键映射  {{{
@@ -632,7 +625,7 @@ function! s:PackagerInit() abort
     else
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 "   {{{  OSC52 支持
-        call packager#add('fcpg/vim-osc52',{'type': 'opt'})
+        call packager#add('BBOOXX/vim-osc52',{'type': 'opt'})
 "   }}}
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     endif
