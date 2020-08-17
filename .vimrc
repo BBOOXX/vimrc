@@ -518,17 +518,10 @@ function! s:PackagerInit() abort
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " {{{  大纲插件
-    if executable('ctags')
-      let tagbar_do = ''
-    else
-      let tagbar_do = s:darwin
-      \?
-        \'brew tap universal-ctags/universal-ctags '.
+    let tagbar_do = ''
+    if s:darwin && system('which ctags | tr -d \\n') != "/usr/local/bin/ctags"
+      let tagbar_do = 'brew tap universal-ctags/universal-ctags '.
         \'&& brew install --with-jansson --HEAD universal-ctags'
-      \:
-        \'sudo apt install libjansson-dev &&'.
-        \'git clone https://github.com/universal-ctags/ctags.git --depth=1 &&'.
-        \'cd ctags && ./autogen.sh && ./configure && make && sudo make install'
     endif
     call packager#add('majutsushi/tagbar', { 'type': 'opt', 'do': tagbar_do})
 " }}}
@@ -600,12 +593,9 @@ function! s:PackagerInit() abort
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " {{{  代码检查
-    if executable('jq')
-      let ale_do = ''
-    else
-      let ale_do = s:darwin
-        \?"brew install jq"
-        \:"sudo apt install jq"
+    let ale_do = ''
+    if !executable('jq') && s:darwin
+      let ale_do = "brew install jq"
     endif
     call packager#add('w0rp/ale', {'do': ale_do})
 " }}}
