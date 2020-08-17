@@ -9,13 +9,17 @@ case "$OSTYPE" in
     *)        echo "unknown: OS: $OSTYPE, U should install dependences by yourself" ;;
 esac
 
-git clone https://github.com/kristijanhusak/vim-packager ~/.vim/pack/packager/opt/vim-packager
+if [ ! -d $HOME/.vim/pack/packager/opt/vim-packager ]; then
+    git clone https://github.com/kristijanhusak/vim-packager ~/.vim/pack/packager/opt/vim-packager
+fi
 
-mkdir -p ~/.config/yapf
-cat>~/.config/yapf/style<<EOF
-[style]
-column_limit = 120
-EOF
+if [ ! -d $HOME/.config/yapf ]; then
+    mkdir -p ~/.config/yapf
+fi
+
+if [ ! -f $HOME/.config/yapf/style ]; then
+    echo "[style]\ncolumn_limit = 120">>~/.config/yapf/style
+fi
 
 cp .vimrc ~
 #pip install yapf isort pyflakes
