@@ -805,6 +805,7 @@ highlight DiffChange cterm=bold ctermbg=55  ctermfg=255
 " brew install fq
 " pip install flake8
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+let g:ale_disable_lsp = 1
 let g:ale_open_list = 1
 
 " 关闭实时检测 因为和代码片段有冲突
