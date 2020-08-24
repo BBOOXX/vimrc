@@ -635,7 +635,7 @@ command! PackagerStatus call s:PackagerInit() | call packager#status()
 let delimitMate_autoclose = 1
 let delimitMate_expand_cr = 1
 " c-f 跳出边界
-imap <C-f> <Plug>delimitMates-Tab
+imap <C-f> <Plug>delimitMateS-Tab
 ""for python docstring
 autocmd FileType Python let b:delimitMate_nesting_quotes = ['"']
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
