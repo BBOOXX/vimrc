@@ -882,7 +882,8 @@ if s:darwin
   \   {
   \     'name': 'swift',
   \     'cmdline': '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp',
-  \     'filetypes': ['swift']
+  \     'filetypes': ['swift'],
+  \     'project_root_files': [ '*.xcworkspace', '*.xcodeproj', 'Package.swift' ]
   \   },
   \ ]
 endif
