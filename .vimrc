@@ -869,6 +869,17 @@ let g:ycm_use_ultisnips_completer = 1
 nnoremap <Leader>d :topleft vertical YcmCompleter GoTo<CR>
 nnoremap K :YcmCompleter GetDoc<CR>
 
+if s:darwin
+  let g:ycm_language_server =
+  \ [
+  \   {
+  \     'name': 'swift',
+  \     'cmdline': '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp',
+  \     'filetypes': ['swift']
+  \   },
+  \ ]
+endif
+
 " 黑名单,不启用
 let g:ycm_filetype_blacklist = {
     \ 'tagbar' : 1,
