@@ -21,6 +21,7 @@ augroup packager_filetype
   autocmd FileType Python packadd FastFold
   "autocmd FileType Python packadd SimpylFold
   autocmd FileType HTML,CSS packadd emmet-vim
+  autocmd FileType CSS packadd vim-css-color
 augroup END
 
 " Mouse and backspace
@@ -476,6 +477,12 @@ function! s:PackagerInit() abort
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " {{{  彩虹括号
     call packager#add('kien/rainbow_parentheses.vim')
+" }}}
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" {{{  CSS颜色高亮
+    call packager#add('ap/vim-css-color', {'type': 'opt'})
 " }}}
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
