@@ -21,6 +21,7 @@ augroup packager_filetype
   autocmd FileType Python packadd FastFold
   "autocmd FileType Python packadd SimpylFold
   autocmd FileType HTML,CSS packadd emmet-vim
+  autocmd FileType CSS packadd vim-css-color
 augroup END
 
 " Mouse and backspace
@@ -480,6 +481,12 @@ function! s:PackagerInit() abort
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" {{{  CSS颜色高亮
+    call packager#add('ap/vim-css-color', {'type': 'opt'})
+" }}}
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " {{{  高亮操作对象
     call packager#add('machakann/vim-highlightedyank')
 " }}}
@@ -866,8 +873,26 @@ let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_seed_identifiers_with_syntax=1
 " 提示UltiSnips
 let g:ycm_use_ultisnips_completer = 1
+" 关闭自动弹出文档
+let g:ycm_auto_hover = ''
+" K 弹出文档
+nmap K <Plug>(YCMHover)
+" T 查看文档
+nnoremap T :YcmCompleter GetDoc<CR>
+" <Leader>d 跳转
 nnoremap <Leader>d :topleft vertical YcmCompleter GoTo<CR>
-nnoremap K :YcmCompleter GetDoc<CR>
+
+if s:darwin
+  let g:ycm_language_server =
+  \ [
+  \   {
+  \     'name': 'swift',
+  \     'cmdline': '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp',
+  \     'filetypes': ['swift'],
+  \     'project_root_files': [ '*.xcworkspace', '*.xcodeproj', 'Package.swift' ]
+  \   },
+  \ ]
+endif
 
 " 黑名单,不启用
 let g:ycm_filetype_blacklist = {
