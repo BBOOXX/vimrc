@@ -873,8 +873,14 @@ let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_seed_identifiers_with_syntax=1
 " 提示UltiSnips
 let g:ycm_use_ultisnips_completer = 1
+" 关闭自动弹出文档
+let g:ycm_auto_hover = ''
+" K 弹出文档
+nmap K <Plug>(YCMHover)
+" T 查看文档
+nnoremap T :YcmCompleter GetDoc<CR>
+" <Leader>d 跳转
 nnoremap <Leader>d :topleft vertical YcmCompleter GoTo<CR>
-nnoremap K :YcmCompleter GetDoc<CR>
 
 if s:darwin
   let g:ycm_language_server =
