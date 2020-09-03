@@ -1,4 +1,6 @@
 #!/bin/sh
+cd $(dirname $0)
+BASE=$(pwd)
 
 case "$OSTYPE" in
     darwin*)  brew install vim wget cmake;;
@@ -21,5 +23,6 @@ if [ ! -f $HOME/.config/yapf/style ]; then
     echo "[style]\ncolumn_limit = 120">>~/.config/yapf/style
 fi
 
-cp .vimrc ~
+cp $BASE/.vimrc $HOME
 #pip install yapf isort pyflakes
+vim +PackagerInstall
