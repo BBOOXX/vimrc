@@ -826,6 +826,8 @@ let g:ale_lint_on_enter = 1
 let g:ale_list_window_size = 5
 let g:ale_python_pyflakes_auto_pipenv = 1
 let g:ale_python_pylint_auto_pipenv = 1
+let g:ale_python_pylint_use_msg_id = 1
+let g:ale_python_pylint_options = '-d C0114,C0115,C0116,C0301'
 let g:ale_linters = {
     \ 'python' : [
     \ 'pyflakes',
