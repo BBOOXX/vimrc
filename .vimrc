@@ -200,6 +200,9 @@ cnoremap <C-k> <t_ku>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
+" 命令模式<C-l> 重绘屏幕
+cnoremap <C-l> :redraw!<CR>
+
 " v模式中 使用'<Tab>'和'<S-Tab>'进行缩进
 xnoremap <S-Tab> <gv
 xnoremap <Tab> >gv
