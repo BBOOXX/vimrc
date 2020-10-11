@@ -200,6 +200,9 @@ cnoremap <C-k> <t_ku>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
+" 命令模式<C-l> 重绘屏幕
+cnoremap <C-l> :redraw!<CR>
+
 " v模式中 使用'<Tab>'和'<S-Tab>'进行缩进
 xnoremap <S-Tab> <gv
 xnoremap <Tab> >gv
@@ -713,10 +716,14 @@ let g:user_emmet_mode='i'
 " 包裹符号
 let g:surround_no_mappings = 1
 xmap s <Plug>VSurround
+xmap ' <Plug>VSurround'
 xmap " <Plug>VSurround"
 xmap ( <Plug>VSurround(
+xmap ) <Plug>VSurround)
 xmap [ <Plug>VSurround[
+xmap ] <Plug>VSurround]
 xmap { <Plug>VSurround{
+xmap } <Plug>VSurround}
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -826,6 +833,8 @@ let g:ale_lint_on_enter = 1
 let g:ale_list_window_size = 5
 let g:ale_python_pyflakes_auto_pipenv = 1
 let g:ale_python_pylint_auto_pipenv = 1
+let g:ale_python_pylint_use_msg_id = 1
+let g:ale_python_pylint_options = '-d C0114,C0115,C0116,C0301'
 let g:ale_linters = {
     \ 'python' : [
     \ 'pyflakes',
