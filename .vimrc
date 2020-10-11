@@ -716,10 +716,14 @@ let g:user_emmet_mode='i'
 " 包裹符号
 let g:surround_no_mappings = 1
 xmap s <Plug>VSurround
+xmap ' <Plug>VSurround'
 xmap " <Plug>VSurround"
 xmap ( <Plug>VSurround(
+xmap ) <Plug>VSurround)
 xmap [ <Plug>VSurround[
+xmap ] <Plug>VSurround]
 xmap { <Plug>VSurround{
+xmap } <Plug>VSurround}
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
