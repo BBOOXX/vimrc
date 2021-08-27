@@ -29,7 +29,7 @@ set mouse=a
 set backspace=indent,eol,start
 
 " Mac 上的剪贴板
-if s:darwin
+if s:darwin && !exists('$SSH_CONNECTION')
     set clipboard=unnamed
 else
     packadd vim-osc52
@@ -616,16 +616,16 @@ function! s:PackagerInit() abort
     call packager#add('Valloric/YouCompleteMe', {'do': 'python3 install.py'})
 " }}}
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+"
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+"   {{{  OSC52 支持
+    call packager#add('BBOOXX/vim-osc52',{'type': 'opt'})
+"   }}}
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     if s:darwin
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 "   {{{  自动切换输入法
         call packager#add('CodeFalling/fcitx-vim-osx')
-"   }}}
-" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-    else
-" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-"   {{{  OSC52 支持
-        call packager#add('BBOOXX/vim-osc52',{'type': 'opt'})
 "   }}}
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     endif
