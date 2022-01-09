@@ -29,7 +29,7 @@ set mouse=a
 set backspace=indent,eol,start
 
 " Mac 上的剪贴板
-if s:darwin
+if s:darwin && !exists('$SSH_CONNECTION')
     set clipboard=unnamed
 else
     packadd vim-osc52
@@ -616,16 +616,16 @@ function! s:PackagerInit() abort
     call packager#add('Valloric/YouCompleteMe', {'do': 'python3 install.py'})
 " }}}
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+"
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+"   {{{  OSC52 支持
+    call packager#add('BBOOXX/vim-osc52',{'type': 'opt'})
+"   }}}
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     if s:darwin
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 "   {{{  自动切换输入法
         call packager#add('CodeFalling/fcitx-vim-osx')
-"   }}}
-" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-    else
-" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-"   {{{  OSC52 支持
-        call packager#add('BBOOXX/vim-osc52',{'type': 'opt'})
 "   }}}
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     endif
@@ -660,24 +660,24 @@ nnoremap <F1> :packadd vimcdoc <BAR>nnoremap <F1> :help<Space><CR>:help<Space>
 " nerdcommenter
 " 注释插件
 function! s:ReMapNerdcommenter()
-  nnoremap <silent><Leader>cc :<C-u>call NERDComment("n", "Comment")<CR>
-  xnoremap <silent><Leader>cc :<C-u>call NERDComment("x", "Comment")<CR>
-  nnoremap <silent><Leader>cu :<C-u>call NERDComment("n", "Uncomment")<CR>
-  xnoremap <silent><Leader>cu :<C-u>call NERDComment("x", "Uncomment")<CR>
-  nnoremap <silent><Leader>cm :<C-u>call NERDComment("n", "Minimal")<CR>
-  xnoremap <silent><Leader>cm :<C-u>call NERDComment("x", "Minimal")<CR>
-  nnoremap <silent><Leader>cs :<C-u>call NERDComment("n", "Sexy")<CR>
-  xnoremap <silent><Leader>cs :<C-u>call NERDComment("x", "Sexy")<CR>
+  nnoremap <silent><Leader>cc :<C-u>call nerdcommenter#Comment("n", "Comment")<CR>
+  xnoremap <silent><Leader>cc :<C-u>call nerdcommenter#Comment("x", "Comment")<CR>
+  nnoremap <silent><Leader>cu :<C-u>call nerdcommenter#Comment("n", "Uncomment")<CR>
+  xnoremap <silent><Leader>cu :<C-u>call nerdcommenter#Comment("x", "Uncomment")<CR>
+  nnoremap <silent><Leader>cm :<C-u>call nerdcommenter#Comment("n", "Minimal")<CR>
+  xnoremap <silent><Leader>cm :<C-u>call nerdcommenter#Comment("x", "Minimal")<CR>
+  nnoremap <silent><Leader>cs :<C-u>call nerdcommenter#Comment("n", "Sexy")<CR>
+  xnoremap <silent><Leader>cs :<C-u>call nerdcommenter#Comment("x", "Sexy")<CR>
 endfunction
 
-nnoremap <silent><Leader>cc :<C-u>packadd nerdcommenter<BAR>call NERDComment("n", "Comment")<BAR>call <SID>ReMapNerdcommenter()<CR>
-xnoremap <silent><Leader>cc :<C-u>packadd nerdcommenter<BAR>call NERDComment("x", "Comment")<BAR>call <SID>ReMapNerdcommenter()<CR>
-nnoremap <silent><Leader>cu :<C-u>packadd nerdcommenter<BAR>call NERDComment("n", "Uncomment")<BAR>call <SID>ReMapNerdcommenter()<CR>
-xnoremap <silent><Leader>cu :<C-u>packadd nerdcommenter<BAR>call NERDComment("x", "Uncomment")<BAR>call <SID>ReMapNerdcommenter()<CR>
-nnoremap <silent><Leader>cm :<C-u>packadd nerdcommenter<BAR>call NERDComment("n", "Minimal")<BAR>call <SID>ReMapNerdcommenter()<CR>
-xnoremap <silent><Leader>cm :<C-u>packadd nerdcommenter<BAR>call NERDComment("x", "Minimal")<BAR>call <SID>ReMapNerdcommenter()<CR>
-nnoremap <silent><Leader>cs :<C-u>packadd nerdcommenter<BAR>call NERDComment("n", "Sexy")<BAR>call <SID>ReMapNerdcommenter()<CR>
-xnoremap <silent><Leader>cs :<C-u>packadd nerdcommenter<BAR>call NERDComment("x", "Sexy")<BAR>call <SID>ReMapNerdcommenter()<CR>
+nnoremap <silent><Leader>cc :<C-u>packadd nerdcommenter<BAR>call nerdcommenter#Comment("n", "Comment")<BAR>call <SID>ReMapNerdcommenter()<CR>
+xnoremap <silent><Leader>cc :<C-u>packadd nerdcommenter<BAR>call nerdcommenter#Comment("x", "Comment")<BAR>call <SID>ReMapNerdcommenter()<CR>
+nnoremap <silent><Leader>cu :<C-u>packadd nerdcommenter<BAR>call nerdcommenter#Comment("n", "Uncomment")<BAR>call <SID>ReMapNerdcommenter()<CR>
+xnoremap <silent><Leader>cu :<C-u>packadd nerdcommenter<BAR>call nerdcommenter#Comment("x", "Uncomment")<BAR>call <SID>ReMapNerdcommenter()<CR>
+nnoremap <silent><Leader>cm :<C-u>packadd nerdcommenter<BAR>call nerdcommenter#Comment("n", "Minimal")<BAR>call <SID>ReMapNerdcommenter()<CR>
+xnoremap <silent><Leader>cm :<C-u>packadd nerdcommenter<BAR>call nerdcommenter#Comment("x", "Minimal")<BAR>call <SID>ReMapNerdcommenter()<CR>
+nnoremap <silent><Leader>cs :<C-u>packadd nerdcommenter<BAR>call nerdcommenter#Comment("n", "Sexy")<BAR>call <SID>ReMapNerdcommenter()<CR>
+xnoremap <silent><Leader>cs :<C-u>packadd nerdcommenter<BAR>call nerdcommenter#Comment("x", "Sexy")<BAR>call <SID>ReMapNerdcommenter()<CR>
 
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
@@ -697,9 +697,8 @@ let g:highlightedyank_highlight_duration = 150
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " vim-airline
 " 状态栏增强
-set laststatus=2
+let g:airline_symbols_ascii = 1
 let g:airline_extensions = []
-"let g:airline_theme='onedark'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
