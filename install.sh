@@ -1,6 +1,7 @@
 #!/bin/sh
 cd $(dirname $0)
-BASE=$(pwd)
+export BASE=$(pwd)
+export VIMRC_INIT=true
 
 case "$OSTYPE" in
     darwin*)  brew install vim wget cmake;;
@@ -26,3 +27,4 @@ fi
 cp $BASE/.vimrc $HOME
 #pip install yapf isort pyflakes
 vim +PackagerInstall
+unset VIMRC_INIT

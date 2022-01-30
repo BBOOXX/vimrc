@@ -13,7 +13,7 @@ let s:darwin = has('mac')
 "More info in :help pack-add
 augroup packager_filetype
   autocmd!
-  if isdirectory(".git")
+  if isdirectory(".git") && !exists('$VIMRC_INIT')
     packadd vim-signify
   endif
   autocmd FileType Python packadd vim-textobj-user
@@ -32,7 +32,9 @@ set backspace=indent,eol,start
 if s:darwin && !exists('$SSH_CONNECTION')
     set clipboard=unnamed
 else
+  if !exists('$VIMRC_INIT')
     packadd vim-osc52
+  endif
 endif
 
 " 使用utf-8编码
@@ -349,8 +351,10 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 " 设置主题
 set t_Co=256
-packadd onedark.vim
-color onedark
+if !exists('$VIMRC_INIT')
+  packadd onedark.vim
+  color onedark
+endif
 
 " 修复 Vim 真彩色的 Bug
 if $COLORTERM == "truecolor" && has("termguicolors")
