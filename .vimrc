@@ -617,7 +617,9 @@ function! s:PackagerInit() abort
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " {{{  代码补全
+  if v:version >= 812
     call packager#add('Valloric/YouCompleteMe', {'do': 'python3 install.py'})
+  endif
 " }}}
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 "
