@@ -272,28 +272,24 @@ set pastetoggle=<F2>
 " 退出I模式时自动关闭友好粘贴
 autocmd InsertLeave * set nopaste
 
-" 开关行号函数
-" 绝对行号
-function! s:HideNumber()
-  set number!
-  set number?
-endfunc
-
-" 相对行号
-function! s:HideRelativeNumber()
-  if(&relativenumber == &number)
-    set relativenumber! number!
-  elseif(&number)
-    set number!
-  else
+" 绝对10 关闭00 混合11 之间切换 跳过相对01
+function! s:ToggleNumber()
+  if (&number && &relativenumber)
     set relativenumber!
+    " 11 -> 10
+  elseif (&number)
+    set number!
+    " 10 -> 00
+  else
+    set number! relativenumber!
+    " 00 -> 11
+    " 01 -> 10
   endif
   set number?
 endfunc
 
 " 设置<F3>开启/关闭行号，方便复制
-"nnoremap <F3> :call HideRelativeNumber()<CR>
-nnoremap <F3> :call <sid>HideNumber()<CR>
+nnoremap <F3> :call <sid>ToggleNumber()<CR>
 
 " Better navigating through omnicomplete option list
 " See https://is.gd/ObrWIM
