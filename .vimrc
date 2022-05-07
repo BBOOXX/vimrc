@@ -267,10 +267,23 @@ nnoremap <silent><F12> :set list! list?<CR>
 " 空格折叠代码
 nnoremap <space> za
 
+" 切换 Virtualedit 函数
+let s:old_virtualedit = &virtualedit
+function! s:ToggleVirtualedit()
+  if &virtualedit != "all"
+    set virtualedit=all
+    set virtualedit?
+  else
+    let &virtualedit = s:old_virtualedit
+    set virtualedit?
+  endif
+endfunc
 " 更友好的粘贴
-set pastetoggle=<F2>
-" 退出I模式时自动关闭友好粘贴
-autocmd InsertLeave * set nopaste
+"set pastetoggle=<F2>
+" 同时绑定切换Virtualedit
+nnoremap <F2> :set paste! <bar>call<sid>ToggleVirtualedit()<CR>
+" 退出I模式时自动关闭友好粘贴和 Virtualedit
+autocmd InsertLeave * set nopaste | let &virtualedit=s:old_virtualedit
 
 " 绝对10 关闭00 混合11 之间切换 跳过相对01
 function! s:ToggleNumber()
