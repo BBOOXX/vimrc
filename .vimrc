@@ -21,7 +21,7 @@ augroup packager_filetype
   autocmd FileType Python packadd FastFold
   "autocmd FileType Python packadd SimpylFold
   autocmd FileType HTML,CSS packadd emmet-vim
-  autocmd FileType CSS packadd vim-css-color
+  autocmd FileType SCSS,CSS packadd vim-css-color
 augroup END
 
 " Mouse and backspace
