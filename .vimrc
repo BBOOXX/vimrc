@@ -849,6 +849,8 @@ let g:ale_python_pyflakes_auto_pipenv = 1
 let g:ale_python_pylint_auto_pipenv = 1
 let g:ale_python_pylint_use_msg_id = 1
 let g:ale_python_pylint_options = '-d C0114,C0115,C0116,C0301'
+" 使用`cargo clippy`替代`cargo check`或`cargo build`
+let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 let g:ale_linters = {
     \ 'python' : [
     \ 'pyflakes',
@@ -856,13 +858,14 @@ let g:ale_linters = {
     \ ],
     \ }
 
-autocmd FileType python,json nnoremap <buffer> <F8> :ALEFix<CR>
+autocmd FileType python,json,rust nnoremap <buffer> <F8> :ALEFix<CR>
 " Auto-close the error list
 autocmd QuitPre * if empty(&bt) | lclose | endif
 
 let g:ale_fixers = {
     \'python' : ['yapf', 'isort'],
     \'json' : ['jq'],
+    \'rust' : ['rustfmt'],
     \}
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
