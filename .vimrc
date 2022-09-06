@@ -858,10 +858,7 @@ let g:ale_python_pylint_options = '-d C0114,C0115,C0116,C0301'
 " 使用`cargo clippy`替代`cargo check`或`cargo build`
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 let g:ale_linters = {
-    \ 'python' : [
-    \ 'pyflakes',
-    \ 'pylint',
-    \ ],
+    \ 'python' : ['pyflakes', 'pylint'],
     \ }
 
 autocmd FileType python,json,rust nnoremap <buffer> <F8> :ALEFix<CR>
@@ -900,7 +897,6 @@ let g:ycm_key_invoke_completion = '<Leader>f'
 let g:ycm_key_list_stop_completion = ['<CR>']
 " 触发补全字数
 let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_register_as_syntastic_checker = 0
 " 开启语法关键字补全
 let g:ycm_seed_identifiers_with_syntax=1
 " 提示UltiSnips
