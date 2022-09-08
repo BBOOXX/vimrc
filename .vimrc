@@ -857,11 +857,19 @@ let g:ale_python_pylint_use_msg_id = 1
 let g:ale_python_pylint_options = '-d C0114,C0115,C0116,C0301'
 " 使用`cargo clippy`替代`cargo check`或`cargo build`
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
+
+"Run both javascript and vue linters for vue files.
+let g:ale_linter_aliases = {
+    \ 'vue': ['vue', 'javascript'],
+    \ }
 let g:ale_linters = {
     \ 'python' : ['pyflakes', 'pylint'],
+    \ 'javascript': ['eslint'],
+    \ 'typescript': ['eslint'],
+    \ 'vue': ['eslint'],
     \ }
 
-autocmd FileType python,json,rust nnoremap <buffer> <F8> :ALEFix<CR>
+autocmd FileType python,json,rust,javascript,typescript,vue nnoremap <buffer> <F8> :ALEFix<CR>
 " Auto-close the error list
 autocmd QuitPre * if empty(&bt) | lclose | endif
 
@@ -869,6 +877,9 @@ let g:ale_fixers = {
     \'python' : ['yapf', 'isort'],
     \'json' : ['jq'],
     \'rust' : ['rustfmt'],
+    \'vue' : ['prettier'],
+    \'javascript' : ['prettier'],
+    \'typescript' : ['prettier'],
     \}
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
