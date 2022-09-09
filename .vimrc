@@ -94,7 +94,7 @@ set nofoldenable
 " 折叠方式
 set foldmethod=manual
 set foldlevel=99
-# 根据文件类型来设置折叠方式
+" 根据文件类型来设置折叠方式
 autocmd FileType python setlocal foldmethod=indent
 
 " 等待映射键序列完成时间 毫秒计
