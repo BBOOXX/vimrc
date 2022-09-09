@@ -606,7 +606,7 @@ function! s:PackagerInit() abort
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " {{{  Python 代码折叠
-    call packager#add('tmhedberg/SimpylFold', {'type':'opt'})
+    "call packager#add('tmhedberg/SimpylFold', {'type':'opt'})
     " zi 打开关闭折叠功能
     " za 折叠或展开
     " zc 折叠当前
@@ -706,7 +706,7 @@ xnoremap <silent><Leader>cs :<C-u>packadd nerdcommenter<BAR>call nerdcommenter#C
 " SimpylFold
 " Python 代码折叠
 " 显示预览
-autocmd FileType Python let g:SimpylFold_docstring_preview = 1
+"autocmd FileType Python let g:SimpylFold_docstring_preview = 1
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
