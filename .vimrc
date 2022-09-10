@@ -841,8 +841,10 @@ highlight DiffChange cterm=bold ctermbg=55  ctermfg=255
 " 异步的代码检查
 " brew install fq
 " pip install flake8
+" yarn add -D @volar/vue-language-server
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 let g:ale_disable_lsp = 1
+autocmd FileType Vue let g:ale_disable_lsp = 0
 let g:ale_open_list = 1
 
 " 关闭实时检测 因为和代码片段有冲突
@@ -875,7 +877,7 @@ let g:ale_linters = {
     \ 'python' : ['pyflakes', 'pylint'],
     \ 'javascript': ['eslint'],
     \ 'typescript': ['eslint'],
-    \ 'vue': ['eslint'],
+    \ 'vue': ['eslint', 'volar'],
     \ }
 
 autocmd FileType python,json,rust,javascript,typescript,vue nnoremap <buffer> <F8> :ALEFix<CR>
