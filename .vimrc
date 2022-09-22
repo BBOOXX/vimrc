@@ -20,7 +20,7 @@ augroup packager_filetype
   autocmd FileType Python packadd vim-textobj-python
   autocmd FileType Python packadd FastFold
   "autocmd FileType Python packadd SimpylFold
-  autocmd FileType HTML,CSS packadd emmet-vim
+  autocmd FileType HTML,CSS,VUE packadd emmet-vim
   autocmd FileType SCSS,CSS packadd vim-css-color
 augroup END
 
@@ -95,7 +95,7 @@ set nofoldenable
 set foldmethod=manual
 set foldlevel=99
 " 根据文件类型来设置折叠方式
-autocmd FileType python setlocal foldmethod=indent
+autocmd FileType PYTHON,HTML,VUE setlocal foldmethod=indent
 
 " 等待映射键序列完成时间 毫秒计
 set timeoutlen=300
