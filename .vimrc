@@ -545,9 +545,10 @@ function! s:PackagerInit() abort
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " {{{  大纲插件
     let tagbar_do = ''
-    if s:darwin && system('which ctags | tr -d \\n') != "/usr/local/bin/ctags"
-      let tagbar_do = 'brew tap universal-ctags/universal-ctags '.
-        \'&& brew install --with-jansson --HEAD universal-ctags'
+    let ctags_path = system('which ctags | tr -d \\n')
+    if s:darwin && ctags_path != "/usr/local/bin/ctags"
+              \ && ctags_path != "/opt/homebrew/bin/ctags"
+      let tagbar_do = 'brew install --HEAD universal-ctags/universal-ctags/universal-ctags'
     endif
     call packager#add('majutsushi/tagbar', { 'type': 'opt', 'do': tagbar_do})
 " }}}
@@ -812,8 +813,7 @@ let g:NERDTreeNaturalSort=1
 " tagbar
 " 大纲式导航
 " sudo apt-get install ctags
-" brew tap universal-ctags/universal-ctags
-" brew install --HEAD universal-ctags
+" brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 nnoremap <silent><F10> :packadd tagbar<BAR>nnoremap <lt>silent><lt>F10> :TagbarToggle<lt>CR><BAR>TagbarToggle<CR>
 " 启动时自动获得焦点
