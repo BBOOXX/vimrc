@@ -854,6 +854,8 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 " 打开文件时的检测 0 关闭 1 开启
 let g:ale_lint_on_enter = 1
+" 禁用出现在行尾的虚拟文本
+let g:ale_virtualtext_cursor = 'disabled'
 "let g:ale_set_quickfix = 1
 let g:ale_list_window_size = 5
 let g:ale_python_isort_options = '-e'
