@@ -704,6 +704,9 @@ xnoremap <silent><Leader>cm :<C-u>packadd nerdcommenter<BAR>call nerdcommenter#C
 nnoremap <silent><Leader>cs :<C-u>packadd nerdcommenter<BAR>call nerdcommenter#Comment("n", "Sexy")<BAR>call <SID>ReMapNerdcommenter()<CR>
 xnoremap <silent><Leader>cs :<C-u>packadd nerdcommenter<BAR>call nerdcommenter#Comment("x", "Sexy")<BAR>call <SID>ReMapNerdcommenter()<CR>
 
+" 对齐注释符号 而不是遵循代码缩进
+let g:NERDDefaultAlign = 'left'
+let g:NERDCustomDelimiters = {'vue':{'left':'//- '}}
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
