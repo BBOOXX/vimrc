@@ -9,7 +9,7 @@ case "$PREFIX" in
 esac
 
 case "$OSTYPE" in
-    darwin*)  brew install vim wget cmake ;;
+    darwin*)  brew install vim wget cmake prettier;;
     linux*)   if [ "$termux" != true ]; then
                 sudo apt install -y git vim-nox wget jq cmake build-essential python3-dev libjansson-dev automake pkg-config
                 git clone https://github.com/universal-ctags/ctags.git --depth=1

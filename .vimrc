@@ -885,7 +885,7 @@ let g:ale_linters = {
     \ 'vue': ['eslint', 'volar'],
     \ }
 
-autocmd FileType python,json,rust,javascript,typescript,vue nnoremap <buffer> <F8> :ALEFix<CR>
+autocmd FileType python,json,rust,javascript,typescript,vue,html nnoremap <buffer> <F8> :ALEFix<CR>
 " Auto-close the error list
 autocmd QuitPre * if empty(&bt) | lclose | endif
 
@@ -894,6 +894,7 @@ let g:ale_fixers = {
     \'json' : ['jq'],
     \'rust' : ['rustfmt'],
     \'vue' : ['prettier'],
+    \'html' : ['prettier'],
     \'javascript' : ['prettier'],
     \'typescript' : ['prettier'],
     \}
