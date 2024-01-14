@@ -95,7 +95,11 @@ set nofoldenable
 set foldmethod=manual
 set foldlevel=99
 " 根据文件类型来设置折叠方式
-autocmd FileType PYTHON,HTML,VUE setlocal foldmethod=indent
+  autocmd FileType PYTHON,
+                  \HTML,
+                  \TYPESCRIPTREACT,
+                  \VUE
+\ setlocal foldmethod=indent
 
 " 等待映射键序列完成时间 毫秒计
 set timeoutlen=300
@@ -227,7 +231,7 @@ nnoremap <Leader>E :qa!<CR>
 " <C-n> 取消搜索高亮
 nnoremap <silent><C-n> :nohl<CR>
 
-" gd 搜索当前单词 使用"1寄存器
+" gd 搜索当前单词 使用"a寄存器
 nnoremap <silent>gd "1yiw/<C-r>1<CR>N
 
 " 切换窗口
@@ -637,7 +641,7 @@ function! s:PackagerInit() abort
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " {{{  代码补全
   if v:version >= 801
-    call packager#add('Valloric/YouCompleteMe', {'do': 'python3 install.py'})
+    call packager#add('Valloric/YouCompleteMe', {'do': 'python3 install.py --ts-completer'})
   endif
 " }}}
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -861,6 +865,8 @@ let g:ale_lint_on_enter = 1
 let g:ale_virtualtext_cursor = 'disabled'
 "let g:ale_set_quickfix = 1
 let g:ale_list_window_size = 5
+
+"python
 let g:ale_python_isort_options = '-e'
 let g:ale_python_isort_auto_pipenv = 1
 let g:ale_python_pyflakes_auto_pipenv = 1
@@ -871,6 +877,8 @@ let g:ale_python_pylint_use_msg_id = 1
 " C0116 缺少函数文档字符串
 " C0301 行长度超限
 let g:ale_python_pylint_options = '-d C0114,C0115,C0116,C0301'
+
+"rust
 " 使用`cargo clippy`替代`cargo check`或`cargo build`
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 
@@ -881,11 +889,24 @@ let g:ale_linter_aliases = {
 let g:ale_linters = {
     \ 'python' : ['pyflakes', 'pylint'],
     \ 'javascript': ['eslint'],
+    \ 'javascriptreact': ['eslint'],
     \ 'typescript': ['eslint'],
+    \ 'typescriptreact': ['eslint'],
     \ 'vue': ['eslint', 'volar'],
     \ }
 
-autocmd FileType python,json,rust,javascript,typescript,vue,html nnoremap <buffer> <F8> :ALEFix<CR>
+"<F8> 格式化
+  autocmd FileType PYTHON,
+                  \JSON,
+                  \RUST,
+                  \HTML,
+                  \JAVASCRIPT,
+                  \JAVASCRIPTREACT,
+                  \TYPESCRIPT,
+                  \TYPESCRIPTREACT,
+                  \VUE
+\ nnoremap <buffer> <F8> :ALEFix<CR>
+
 " Auto-close the error list
 autocmd QuitPre * if empty(&bt) | lclose | endif
 
@@ -897,6 +918,8 @@ let g:ale_fixers = {
     \'html' : ['prettier'],
     \'javascript' : ['prettier'],
     \'typescript' : ['prettier'],
+    \'javascriptreact' : ['prettier'],
+    \'typescriptreact' : ['prettier'],
     \}
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
