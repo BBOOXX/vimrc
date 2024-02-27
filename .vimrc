@@ -552,7 +552,7 @@ function! s:PackagerInit() abort
     let ctags_path = system('which ctags | tr -d \\n')
     if s:darwin && ctags_path != "/usr/local/bin/ctags"
               \ && ctags_path != "/opt/homebrew/bin/ctags"
-      let tagbar_do = 'brew install --HEAD universal-ctags/universal-ctags/universal-ctags'
+      let tagbar_do = 'brew install universal-ctags'
     endif
     call packager#add('majutsushi/tagbar', { 'type': 'opt', 'do': tagbar_do})
 " }}}
