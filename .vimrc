@@ -98,7 +98,8 @@ set foldlevel=99
   autocmd FileType PYTHON,
                   \HTML,
                   \TYPESCRIPTREACT,
-                  \VUE
+                  \VUE,
+                  \LUA
 \ setlocal foldmethod=indent
 
 " 等待映射键序列完成时间 毫秒计
@@ -630,9 +631,21 @@ function! s:PackagerInit() abort
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " {{{  代码检查
-    let ale_do = ''
+    let ale_do = []
     if !executable('jq') && s:darwin
-      let ale_do = "brew install jq"
+      call add(ale_do, "jq")
+    endif
+    if !executable('prettier') && s:darwin
+      call add(ale_do, "prettier")
+    endif
+    if !executable('stylua') && s:darwin
+      call add(ale_do, "stylua")
+    endif
+    if !executable('luacheck') && s:darwin
+      call add(ale_do, "luacheck")
+    endif
+    if !empty(ale_do) && s:darwin
+      let ale_do = "brew install " . join(ale_do, ' ')
     endif
     call packager#add('w0rp/ale', {'do': ale_do})
 " }}}
@@ -887,6 +900,7 @@ let g:ale_linter_aliases = {
     \ 'vue': ['vue', 'javascript'],
     \ }
 let g:ale_linters = {
+    \ 'lua': ['luacheck'],
     \ 'python' : ['pyflakes', 'pylint'],
     \ 'javascript': ['eslint'],
     \ 'javascriptreact': ['eslint'],
@@ -904,13 +918,15 @@ let g:ale_linters = {
                   \JAVASCRIPTREACT,
                   \TYPESCRIPT,
                   \TYPESCRIPTREACT,
-                  \VUE
+                  \VUE,
+                  \LUA
 \ nnoremap <buffer> <F8> :ALEFix<CR>
 
 " Auto-close the error list
 autocmd QuitPre * if empty(&bt) | lclose | endif
 
 let g:ale_fixers = {
+    \'lua' : ['stylua'],
     \'python' : ['yapf', 'isort'],
     \'json' : ['jq'],
     \'rust' : ['rustfmt'],
