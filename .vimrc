@@ -795,6 +795,8 @@ let g:UltiSnipsJumpBackwardTrigger="<Leader><s-tab>"
 " vim-easy-align
 " 对齐插件
 vnoremap <silent>ga :<Home>packadd vim-easy-align<BAR>vmap ga <Plug>(EasyAlign)<BAR><End>EasyAlign<CR>
+" 默认 ['Comment', 'String']
+let g:easy_align_ignore_groups = []
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
