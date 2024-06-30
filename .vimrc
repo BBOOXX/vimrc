@@ -58,6 +58,10 @@ set virtualedit=block
 " 开启语法高亮
 filetype plugin indent on
 syntax on
+" 长行里超过此列数的文本不再高亮
+" 后续行也不一定能正确高亮。因为语法状态被清除。
+" 有助于避免单个长行的 XML 文件的重画非常缓慢的问题。
+set synmaxcol=260
 
 " Useful settings
 set history=700
