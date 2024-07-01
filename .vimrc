@@ -799,6 +799,9 @@ let g:UltiSnipsJumpBackwardTrigger="<Leader><s-tab>"
 " vim-easy-align
 " 对齐插件
 vnoremap <silent>ga :<Home>packadd vim-easy-align<BAR>vmap ga <Plug>(EasyAlign)<BAR><End>EasyAlign<CR>
+" CSV 文件中快速对齐
+  autocmd FileType csv,
+\ vnoremap <silent>gs :<Home>packadd vim-easy-align<BAR>vmap gs <Plug>(EasyAlign)<lt>CR>*,<BAR><End>EasyAlign!*,<CR>
 " 默认 ['Comment', 'String']
 let g:easy_align_ignore_groups = []
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
