@@ -190,6 +190,7 @@ inoremap <C-c> <Esc>
 " N模式下 H 和 L 跳转行首行尾
 noremap H ^
 noremap L $
+noremap <C-f> $
 
 " N模式下分号映射为冒号
 " and save a million keystrokes
