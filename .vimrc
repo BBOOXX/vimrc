@@ -937,6 +937,11 @@ let g:ale_linters = {
 \ silent! %s/^\s\+//<BAR>silent! %s/,\s\+/,/g<BAR>nohlsearch<BAR>
 \ <End>silent %EasyAlign!*, {'f':'g/,/'}<CR>
 
+" CSV 文件中快速精简
+  autocmd FileType csv,
+\ nnoremap <silent><F4> :silent! %s/^\s\+//<BAR>
+\ silent! %s/,\s\+/,/g<BAR>nohlsearch<CR>
+
 " Auto-close the error list
 autocmd QuitPre * if empty(&bt) | lclose | endif
 
