@@ -799,11 +799,6 @@ let g:UltiSnipsJumpBackwardTrigger="<Leader><s-tab>"
 " vim-easy-align
 " 对齐插件
 vnoremap <silent>ga :<Home>packadd vim-easy-align<BAR>vmap ga <Plug>(EasyAlign)<BAR><End>EasyAlign<CR>
-" CSV 文件中快速对齐
-  autocmd FileType csv,
-\ vnoremap <silent>gs :<Home>packadd vim-easy-align<BAR>
-\ vmap gs <Plug>(EasyAlign)<lt>c-f>g/,/<lt>CR><lt>CR>*,<BAR>
-\ <End>EasyAlign!*, {'f':'g/,/'}<CR>
 " 默认 ['Comment', 'String']
 let g:easy_align_ignore_groups = []
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -932,6 +927,15 @@ let g:ale_linters = {
                   \VUE,
                   \LUA
 \ nnoremap <buffer> <F8> :ALEFix<CR>
+
+" CSV 文件中快速对齐
+" 加载插件
+" 删除行首和逗号后的空格
+" 执行对齐
+  autocmd FileType csv,
+\ nnoremap <silent><F8> :<Home>packadd vim-easy-align<BAR>
+\ silent! %s/^\s\+//<BAR>silent! %s/,\s\+/,/g<BAR>nohlsearch<BAR>
+\ <End>silent %EasyAlign!*, {'f':'g/,/'}<CR>
 
 " Auto-close the error list
 autocmd QuitPre * if empty(&bt) | lclose | endif
