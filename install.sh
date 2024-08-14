@@ -27,7 +27,7 @@ if [ ! -d $HOME/.config/yapf ]; then
 fi
 
 if [ ! -f $HOME/.config/yapf/style ]; then
-    echo "[style]\nallow_split_before_dict_value = false\ncolumn_limit = 120">>~/.config/yapf/style
+    echo "[style]\nsplit_before_named_assigns = false\nallow_split_before_dict_value = false\ncolumn_limit = 120">>~/.config/yapf/style
 fi
 
 cp $BASE/.vimrc $HOME
