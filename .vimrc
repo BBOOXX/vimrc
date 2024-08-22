@@ -16,12 +16,12 @@ augroup packager_filetype
   if isdirectory(".git") && !exists('$VIMRC_INIT')
     packadd vim-signify
   endif
-  autocmd FileType Python packadd vim-textobj-user
-  autocmd FileType Python packadd vim-textobj-python
-  autocmd FileType Python packadd FastFold
-  "autocmd FileType Python packadd SimpylFold
-  autocmd FileType HTML,CSS,VUE packadd emmet-vim
-  autocmd FileType SCSS,CSS packadd vim-css-color
+  autocmd FileType python packadd vim-textobj-user
+  autocmd FileType python packadd vim-textobj-python
+  autocmd FileType python packadd FastFold
+  "autocmd FileType python packadd SimpylFold
+  autocmd FileType html,css,vue packadd emmet-vim
+  autocmd FileType scss,css packadd vim-css-color
 augroup END
 
 " Mouse and backspace
@@ -99,11 +99,11 @@ set nofoldenable
 set foldmethod=manual
 set foldlevel=99
 " 根据文件类型来设置折叠方式
-  autocmd FileType PYTHON,
-                  \HTML,
-                  \TYPESCRIPTREACT,
-                  \VUE,
-                  \LUA
+  autocmd FileType python,
+                  \html,
+                  \typescriptreact,
+                  \vue,
+                  \lua
 \ setlocal foldmethod=indent
 
 " 等待映射键序列完成时间 毫秒计
@@ -700,7 +700,7 @@ let delimitMate_expand_cr = 1
 " c-f 跳出边界
 imap <C-f> <Plug>delimitMateS-Tab
 ""for python docstring
-autocmd FileType Python let b:delimitMate_nesting_quotes = ['"']
+autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -741,7 +741,7 @@ let g:NERDCustomDelimiters = {'vue':{'left':'//- '}}
 " SimpylFold
 " Python 代码折叠
 " 显示预览
-"autocmd FileType Python let g:SimpylFold_docstring_preview = 1
+"autocmd FileType python let g:SimpylFold_docstring_preview = 1
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -877,7 +877,7 @@ highlight DiffChange cterm=bold ctermbg=55  ctermfg=255
 " yarn add -D @volar/vue-language-server
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 let g:ale_disable_lsp = 1
-autocmd FileType Vue let g:ale_disable_lsp = 0
+autocmd FileType vue let g:ale_disable_lsp = 0
 let g:ale_open_list = 1
 
 " 关闭实时检测 因为和代码片段有冲突
@@ -923,16 +923,16 @@ let g:ale_linters = {
     \ }
 
 "<F8> 格式化
-  autocmd FileType PYTHON,
-                  \JSON,
-                  \RUST,
-                  \HTML,
-                  \JAVASCRIPT,
-                  \JAVASCRIPTREACT,
-                  \TYPESCRIPT,
-                  \TYPESCRIPTREACT,
-                  \VUE,
-                  \LUA
+  autocmd FileType python,
+                  \json,
+                  \rust,
+                  \html,
+                  \javascript,
+                  \javascriptreact,
+                  \typescript,
+                  \typescriptreact,
+                  \vue,
+                  \lua
 \ nnoremap <buffer> <F8> :ALEFix<CR>
 
 " CSV 文件中快速对齐
