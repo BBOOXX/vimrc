@@ -895,14 +895,8 @@ let g:ale_list_window_size = 5
 "python
 let g:ale_python_isort_options = '-e'
 let g:ale_python_isort_auto_pipenv = 1
-let g:ale_python_pyflakes_auto_pipenv = 1
-let g:ale_python_pylint_auto_pipenv = 1
-let g:ale_python_pylint_use_msg_id = 1
-" C0114 缺少模块文档字符串
-" C0115 缺少类文档字符串
-" C0116 缺少函数文档字符串
-" C0301 行长度超限
-let g:ale_python_pylint_options = '-d C0114,C0115,C0116,C0301'
+" see: https://docs.astral.sh/ruff/rules/
+let g:ale_python_ruff_options = '--select F,N,PL --ignore PLR0911,PLR0912,PLR0915,PLR2004'
 
 "rust
 " 使用`cargo clippy`替代`cargo check`或`cargo build`
@@ -912,9 +906,10 @@ let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 let g:ale_linter_aliases = {
     \ 'vue': ['vue', 'javascript'],
     \ }
+
 let g:ale_linters = {
     \ 'lua': ['luacheck'],
-    \ 'python' : ['pyflakes', 'pylint'],
+    \ 'python' : ['ruff'],
     \ 'javascript': ['eslint'],
     \ 'javascriptreact': ['eslint'],
     \ 'typescript': ['eslint'],
