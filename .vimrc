@@ -896,7 +896,7 @@ let g:ale_list_window_size = 5
 let g:ale_python_isort_options = '-e'
 let g:ale_python_isort_auto_pipenv = 1
 " see: https://docs.astral.sh/ruff/rules/
-let g:ale_python_ruff_options = '--select F,N,PL --ignore PLR0911,PLR0912,PLR0915,PLR2004'
+let g:ale_python_ruff_options = '--select F,N,PL --ignore PLR0911,PLR0912,PLR0913,PLR0915,PLR2004'
 
 "rust
 " 使用`cargo clippy`替代`cargo check`或`cargo build`
