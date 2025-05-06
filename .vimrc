@@ -784,12 +784,10 @@ xmap } <Plug>VSurround}
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " rainbow_parentheses.vim
 " 高亮括号
-if exists(':RainbowParenthesesToggle')
-  autocmd VimEnter * RainbowParenthesesToggle
-  autocmd Syntax * RainbowParenthesesLoadRound
-  autocmd Syntax * RainbowParenthesesLoadSquare
-  autocmd Syntax * RainbowParenthesesLoadBraces
-endif
+autocmd VimEnter * silent! RainbowParenthesesToggle
+autocmd Syntax * silent! RainbowParenthesesLoadRound
+autocmd Syntax * silent! RainbowParenthesesLoadSquare
+autocmd Syntax * silent! RainbowParenthesesLoadBraces
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -898,6 +896,9 @@ let g:ale_python_isort_auto_pipenv = 1
 let g:ale_python_pylint_options = '--errors-only'
 " see: https://docs.astral.sh/ruff/rules/
 let g:ale_python_ruff_options = '--select F,N,PL --ignore PLR0911,PLR0912,PLR0913,PLR0915,PLR2004'
+
+"lua
+let g:ale_lua_stylua_options = '--syntax lua53'
 
 "rust
 " 使用`cargo clippy`替代`cargo check`或`cargo build`
