@@ -897,6 +897,7 @@ let g:ale_virtualtext_cursor = 'disabled'
 let g:ale_list_window_size = 5
 
 "python
+let g:ale_python_auto_virtualenv = 1
 let g:ale_python_isort_options = '-e'
 let g:ale_python_isort_auto_pipenv = 1
 let g:ale_python_pylint_options = '--errors-only'
@@ -975,8 +976,21 @@ let g:ale_fixers = {
 " 注释和字符串中的文字会被收集用来补全
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_collect_identifiers_from_tags_files = 0
+
+function! s:DetectPythonForYcm() abort
+  if filereadable('.venv/bin/python')
+    return './.venv/bin/python'
+  elseif executable('python3')
+    return 'python3'
+  elseif executable('python')
+    return 'python'
+  else
+    return ''
+  endif
+endfunction
+
 let g:ycm_server_python_interpreter = 'python3'
-let g:ycm_python_binary_path = 'python3'
+let g:ycm_python_binary_path = s:DetectPythonForYcm()
 "退出I模式时自动关闭preview窗口
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
