@@ -835,7 +835,7 @@ omap <silent>/ :packadd vim-easymotion<BAR>call <sid>ReMapEasymotion()<CR><Plug>
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " NERDTree
 " 树形目录
-nnoremap <silent><F9> :packadd nerdtree<BAR>nnoremap <lt>silent><lt>F9> :NERDTreeToggle<lt>CR><BAR>NERDTreeToggle<CR>
+nnoremap <silent><F9> :packadd nerdtree<BAR>nnoremap <lt>silent><lt>F9> :NERDTreeToggle<lt>CR><BAR>NERDTreeToggle %:p:h<CR>
 let g:NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
 let g:NERDTreeNaturalSort=1
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
