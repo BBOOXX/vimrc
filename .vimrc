@@ -91,7 +91,7 @@ set nowritebackup
 set noswapfile
 
 " 自动切换到正在编辑的文件的目录
-set autochdir
+"set autochdir
 
 " 禁用自动折叠
 set nofoldenable
