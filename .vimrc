@@ -201,6 +201,7 @@ nnoremap U <C-r>
 
 " zt(置顶) 比 zz(置中) 更常用
 nnoremap zz zt
+vnoremap zz zt
 
 " 阻止F1调出系统帮助
 inoremap <F1> <Esc>
