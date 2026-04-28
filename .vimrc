@@ -644,6 +644,9 @@ function! s:PackagerInit() abort
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " {{{  代码检查
     let ale_do = []
+    if !executable('tombi') && s:darwin
+      call add(ale_do, "tombi")
+    endif
     if !executable('jq') && s:darwin
       call add(ale_do, "jq")
     endif
@@ -934,6 +937,7 @@ let g:ale_linters = {
                   \html,
                   \javascript,
                   \javascriptreact,
+                  \toml,
                   \typescript,
                   \typescriptreact,
                   \vue,
@@ -964,6 +968,7 @@ let g:ale_fixers = {
     \'rust' : ['rustfmt'],
     \'vue' : ['prettier'],
     \'html' : ['prettier'],
+    \'toml': ['tombi_format'],
     \'javascript' : ['prettier'],
     \'typescript' : ['prettier'],
     \'javascriptreact' : ['prettier'],
