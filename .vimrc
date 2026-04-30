@@ -647,6 +647,9 @@ function! s:PackagerInit() abort
     if !executable('tombi') && s:darwin
       call add(ale_do, "tombi")
     endif
+    if !executable('yamlfmt') && s:darwin
+      call add(ale_do, "yamlfmt")
+    endif
     if !executable('jq') && s:darwin
       call add(ale_do, "jq")
     endif
@@ -911,6 +914,9 @@ let g:ale_python_ruff_options = '--select F,N,PL --ignore PLR0911,PLR0912,PLR091
 "lua
 let g:ale_lua_stylua_options = '--syntax lua53'
 
+"yaml
+let g:ale_yaml_yamlfmt_options = '-formatter retain_line_breaks_single=true,trim_trailing_whitespace=true,eof_newline=true'
+
 "rust
 " 使用`cargo clippy`替代`cargo check`或`cargo build`
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
@@ -938,6 +944,7 @@ let g:ale_linters = {
                   \javascript,
                   \javascriptreact,
                   \toml,
+                  \yaml,
                   \typescript,
                   \typescriptreact,
                   \vue,
@@ -969,6 +976,7 @@ let g:ale_fixers = {
     \'vue' : ['prettier'],
     \'html' : ['prettier'],
     \'toml': ['tombi_format'],
+    \'yaml': ['yamlfmt'],
     \'javascript' : ['prettier'],
     \'typescript' : ['prettier'],
     \'javascriptreact' : ['prettier'],
