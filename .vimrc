@@ -216,6 +216,9 @@ cnoremap <C-k> <t_ku>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
+" :w!! 使用 sudo 保存当前文件
+ca w!! w !sudo tee "%" >/dev/null
+
 " 命令模式<C-l> 重绘屏幕
 cnoremap <C-l> :redraw!<CR>
 
