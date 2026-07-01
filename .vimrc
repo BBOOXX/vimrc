@@ -363,6 +363,8 @@ augroup shortcut_key_filetype
     autocmd FileType python nnoremap <F5> :!python %<CR>
     " <F6> 输入参数后运行文件
     autocmd FileType python nnoremap <F6> :!python %<space>
+    " Zig 文件中的快捷键
+    autocmd FileType zig nnoremap <buffer> <F5> :make<CR>
 augroup END
 
 "}}}
@@ -924,6 +926,19 @@ let g:ale_yaml_yamlfmt_options = '-formatter retain_line_breaks_single=true,trim
 " 使用`cargo clippy`替代`cargo check`或`cargo build`
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 
+"zig
+" 使用<F8>手动格式化 避免保存时自动改动文件
+let g:zig_fmt_autosave = 0
+" Zig 0.16 的 zig env 输出不是 JSON 旧 zig.vim 需要提前设置标准库路径
+if executable('zig') && !exists('g:zig_std_dir')
+  let s:zig_env = system('zig env')
+  let s:zig_std_dir = matchstr(s:zig_env, '\.std_dir = "\zs[^"]\+\ze"')
+  if !empty(s:zig_std_dir)
+    let g:zig_std_dir = s:zig_std_dir
+  endif
+  unlet! s:zig_env s:zig_std_dir
+endif
+
 "Run both javascript and vue linters for vue files.
 let g:ale_linter_aliases = {
     \ 'vue': ['vue', 'javascript'],
@@ -951,6 +966,7 @@ let g:ale_linters = {
                   \typescript,
                   \typescriptreact,
                   \vue,
+                  \zig,
                   \lua
 \ nnoremap <buffer> <F8> :ALEFix<CR>
 
@@ -980,6 +996,7 @@ let g:ale_fixers = {
     \'html' : ['prettier'],
     \'toml': ['tombi_format'],
     \'yaml': ['yamlfmt'],
+    \'zig' : ['zigfmt'],
     \'javascript' : ['prettier'],
     \'typescript' : ['prettier'],
     \'javascriptreact' : ['prettier'],
@@ -1038,16 +1055,24 @@ nnoremap T :YcmCompleter GetDoc<CR>
 " <Leader>d 跳转
 nnoremap <Leader>d :topleft vertical YcmCompleter GoTo<CR>
 
+let g:ycm_language_server = []
+
+if executable('zls')
+  call add(g:ycm_language_server, {
+  \ 'name': 'zig',
+  \ 'cmdline': ['zls'],
+  \ 'filetypes': ['zig'],
+  \ 'project_root_files': ['build.zig', '.git']
+  \ })
+endif
+
 if s:darwin
-  let g:ycm_language_server =
-  \ [
-  \   {
-  \     'name': 'swift',
-  \     'cmdline': '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp',
-  \     'filetypes': ['swift'],
-  \     'project_root_files': [ '*.xcworkspace', '*.xcodeproj', 'Package.swift' ]
-  \   },
-  \ ]
+  call add(g:ycm_language_server, {
+  \ 'name': 'swift',
+  \ 'cmdline': '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp',
+  \ 'filetypes': ['swift'],
+  \ 'project_root_files': [ '*.xcworkspace', '*.xcodeproj', 'Package.swift' ]
+  \ })
 endif
 
 " 黑名单,不启用
