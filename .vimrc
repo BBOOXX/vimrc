@@ -1054,6 +1054,8 @@ nmap K <Plug>(YCMHover)
 nnoremap T :YcmCompleter GetDoc<CR>
 " <Leader>d 跳转
 nnoremap <Leader>d :topleft vertical YcmCompleter GoTo<CR>
+" 查找当前符号的所有引用
+nnoremap <Leader>r :YcmCompleter GoToReferences<CR>
 
 let g:ycm_language_server = []
 
