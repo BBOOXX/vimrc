@@ -904,7 +904,7 @@ let g:ale_list_window_size = 5
 
 "python
 let g:ale_python_auto_virtualenv = 1
-let g:ale_python_isort_options = '-e'
+let g:ale_python_isort_options = '-e --settings-file ' . shellescape(expand('~/.config/yapf/style'))
 let g:ale_python_isort_auto_pipenv = 1
 let g:ale_python_pylint_options = '--errors-only'
 " see: https://docs.astral.sh/ruff/rules/

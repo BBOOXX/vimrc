@@ -22,12 +22,24 @@ if [ ! -d $HOME/.vim/pack/packager/opt/vim-packager ]; then
     git clone https://github.com/kristijanhusak/vim-packager ~/.vim/pack/packager/opt/vim-packager
 fi
 
-if [ ! -d $HOME/.config/yapf ]; then
-    mkdir -p ~/.config/yapf
+if [ ! -d "$HOME/.config/yapf" ]; then
+    mkdir -p "$HOME/.config/yapf"
 fi
 
-if [ ! -f $HOME/.config/yapf/style ]; then
-    echo "[style]\nsplit_before_named_assigns = false\nallow_split_before_dict_value = false\ncolumn_limit = 120">>~/.config/yapf/style
+if [ ! -f "$HOME/.config/yapf/style" ]; then
+    cat > "$HOME/.config/yapf/style" <<'EOF'
+[style]
+split_before_named_assigns = true
+allow_split_before_dict_value = false
+column_limit = 130
+split_before_first_argument = true
+dedent_closing_brackets = true
+split_complex_comprehension = true
+
+[isort]
+profile = black
+line_length = 130
+EOF
 fi
 
 cp $BASE/.vimrc $HOME
